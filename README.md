@@ -20,10 +20,10 @@ npm run dev
 页面测试完成后，建议回退相关配置，并将页面信息填写到[页面配置表格](#页面配置)。
 
 ### 页面配置
-|entry key|source path (js file)| web path|module|writer
-|:--:|:--:|:--:|:--:|:--:|
-|index|./src/index.js|index.html|-|-|
-|login|./src/user-management-module/pages/login.js|login/index.html|User Management|tp|
+|entry key|source path (js file)| web path|module|writer|desp
+|:--:|:--:|:--:|:--:|:--:|:--:|
+|index|./src/index.js|index.html|-|-|系统主页
+|login|./src/user-management-module/pages/login.js|login/index.html|User Management|tp|登录页面
 
 
 
