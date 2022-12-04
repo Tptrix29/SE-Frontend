@@ -13,9 +13,9 @@ npm run dev
 ```
 
 ### 新增页面测试
-修改webpack.config.js: (详细操作见配置文件注释)
+修改`webpack.config.js`文件: (详细操作见配置文件注释)
 1. entry中添加渲染配置文件
-2. plugin中新增HtmlPlugin对象
+2. plugin中新增`HtmlPlugin`对象
 
 页面测试完成后，建议回退相关配置，并将页面信息填写到[页面配置表格](#页面配置)。
 
