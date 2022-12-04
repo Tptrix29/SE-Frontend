@@ -21,7 +21,7 @@ npm run dev
 
 ### 页面配置
 |entry key|source path (js file)| web path|module|writer
-|--|--|--|--|--|
+|:--:|:--:|:--:|:--:|:--:|
 |index|./src/index.js|index.html|-|-|
 |login|./src/user-management-module/pages/login.js|login/index.html|User Management|tp|
 
