@@ -1,5 +1,5 @@
 import React from "react";
-import '../static/style.css';
+import "../../static/style.css"
 
 
 export default class FunctionCard extends React.Component{

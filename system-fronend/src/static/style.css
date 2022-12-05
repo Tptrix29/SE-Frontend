@@ -32,11 +32,11 @@ body{
 
 /* admin_home */
 
-.admin-nav{
+.side-nav{
     position: fixed;
     border-right: 2px solid rgb(191, 191, 191);
     width: 15%;
-    padding-left: 3%;
+    padding-left: 2.5%;
     padding-top: 10%;
     bottom: 0px;
     top: 0px;
@@ -44,9 +44,12 @@ body{
 }
 
 .sys-bar{
+    z-index: 999;
+    position: fixed;
+    width: 100%;
     background-color: rgb(238, 253, 248);
-    margin-left: 15%;
     padding: 1% 2%;
+    top:0;
     display: flex;
     align-items: center;
     border-bottom: 1.5px solid rgb(191, 191, 191);
@@ -59,15 +62,27 @@ body{
 }
 
 .sys-title{
+    margin-left: 2%;
     width: 30%;
     font-size: 2rem;
     font-weight: bolder;
     right: 0px;
 }
 
-.admin-panel-box{
+.page-panel{
+    /* border: 1px solid black; */
+    margin-top: 7%;
     margin-left: 15%;
     padding: 2%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.home-panel{
+    align-items: center;
+    margin-top: 8%;
+    margin-left: 5%;
+    /* margin-left: 15%; */
     display: flex;
     flex-wrap: wrap;
 }
@@ -78,7 +93,25 @@ body{
     opacity: 0.85;
 }
 
+/* Course */
+.course-nav{
+    align-items: center;
+    display: flex;
+    text-align: right;
+    /* border: 1px solid black; */
+    width: 100%;
+}
 
+.course-title{
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-align: right;
+    width: 20%;
+}
+
+.nav-tab{
+    width: 70%;
+}
 
 
 

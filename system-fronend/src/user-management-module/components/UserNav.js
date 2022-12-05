@@ -1,7 +1,7 @@
 import React from 'react';
 import "../../static/style.css"
 
-export default class AdminNav extends React.Component{
+export default class UserNav extends React.Component{
     constructor(props){
         super(props);
     }
@@ -13,18 +13,17 @@ export default class AdminNav extends React.Component{
                     <a class="nav-link active" aria-current="page" href="#">控制面板</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link ">用户注册</a>
+                    <a class="nav-link ">高等数学</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">用户查验</a>
+                    <a class="nav-link" href="#">大学英语</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">用户管理</a>
+                    <a class="nav-link" href="#">线性代数</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link ">课程管理</a>
+                    <a class="nav-link ">面向对象编程</a>
                 </li>
-                
             </ul>
         );
     }

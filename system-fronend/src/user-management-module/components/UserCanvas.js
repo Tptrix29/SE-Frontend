@@ -19,7 +19,7 @@ export default function UserCanvas() {
                     <Offcanvas.Body>
                         <Card className="text-center">
                             <Card.Header>欢迎使用</Card.Header>
-                            <Card.Body><br/>
+                            <Card.Body>
                                 <Card.Title>Username</Card.Title>
                                 <Card.Text>您的角色是：系统管理员</Card.Text><br/>
                                 <Button variant="outline-primary">编辑个人信息</Button><br/><br/>
@@ -30,7 +30,7 @@ export default function UserCanvas() {
                                     <ListGroup.Item>acitve</ListGroup.Item>
                                     <ListGroup.Item></ListGroup.Item>
                                 </ListGroup><br/>
-                                <Button variant='danger' >退出登录</Button>
+                                <Button variant='outline-danger' >退出登录</Button>
                             </Card.Body>
                             <Card.Footer className="text-muted">实验教学管理系统 | SE</Card.Footer>
                         </Card>

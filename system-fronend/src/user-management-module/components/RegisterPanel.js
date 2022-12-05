@@ -2,14 +2,14 @@ import React from 'react';
 import "../../static/style.css"
 
 
-export default class LoginWindow extends React.Component{
+export default class RegisterPanel extends React.Component{
     constructor(props){
         super(props);
     }
 
     render(){
         return(
-            <div class='login-box'>
+            <div class='page-panel'>
                 <div class='login-welcome'>统一身份认证</div>
 
                 <div class='login-inputs'>
