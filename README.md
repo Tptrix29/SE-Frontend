@@ -4,6 +4,7 @@ Front-end page of **Experiment Management System** by React.
 ### 相关配置版本
 - npm 8.19.2
 - React 18.2.0
+- Bootstrap 5.2.3
 
 ### 开发环境运行
 ```
