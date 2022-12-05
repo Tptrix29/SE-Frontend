@@ -4,16 +4,11 @@ import Offcanvas from 'react-bootstrap/Offcanvas';
 import Card from 'react-bootstrap/Card';
 import ListGroup from 'react-bootstrap/ListGroup';
 
-export default class UserCanvas extends React.Component {
+export default function UserCanvas() {
+    const [show, setShow] = useState(false);
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
 
-    constructor(props){
-        super(props);
-    }
-
-    render(){
-        const [show, setShow] = useState(false);
-        const handleClose = () => setShow(false);
-        const handleShow = () => setShow(true);
         return(
             <div>
                 <Button variant="primary" onClick={handleShow}>用户信息查看</Button>
@@ -41,9 +36,7 @@ export default class UserCanvas extends React.Component {
                         </Card>
                     </Offcanvas.Body>
                  </Offcanvas>
-            </div>
+        </div>
         );
-    }
-  
 
 }

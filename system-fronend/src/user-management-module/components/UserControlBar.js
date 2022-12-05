@@ -9,7 +9,6 @@ export default class UserControllerBar extends React.Component{
         super(props);
         
     }
-
     
 
     render(){
