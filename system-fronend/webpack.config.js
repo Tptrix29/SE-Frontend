@@ -5,7 +5,8 @@ const HtmlPlugin = require('html-webpack-plugin');
 module.exports = {
     entry: {
         index: './src/index.js',
-        login: './src/user-management-module/pages/login.js'
+        login: './src/user-management-module/pages/login.js',
+        admin_home: './src/user-management-module/pages/admin_home.js',
     },
     output: {
         filename: '[name].bundle.js',
@@ -26,18 +27,15 @@ module.exports = {
           {
             test: /\.css$/,
             exclude: /node_modules/,
-            use:{
-                loader: 'css-loader',
-            }
+            use: ['style-loader', 'css-loader']
           },
+          //配置图片的loader
           {
-            test: /\.(jpg|jpe?g|gif)$/,
+            test: /\.(gif|png|svg|jpe?g)$/,
             exclude: /node_modules/,
-            use:{
-                loader: 'file-loader',
-            }
-          }
-        ]
+            type: "asset/resource",
+        },
+      ]
     },
     devServer: {
         open: true,
@@ -57,5 +55,10 @@ module.exports = {
             filename: 'login/index.html',
             chunks: ['login'],
         }),
+        new HtmlPlugin({
+          template: 'public/index.html',
+          filename: 'admin/index.html',
+          chunks: ['admin_home'],
+      }),
     ]
 }
