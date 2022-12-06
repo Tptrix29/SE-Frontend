@@ -1,15 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import { SystemControllerBar } from '../../user-management-module/components/SystemControllerBar';
 
 
-import LoginWindow from '../components/LoginWindow';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
     <div>
-        <LoginWindow />
+        <SystemControllerBar/>
     </div>
-
 );
 
 

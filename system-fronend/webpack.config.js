@@ -10,8 +10,12 @@ module.exports = {
         admin_home: './src/user-management-module/pages/admin_home.js',
         user_home: './src/user-management-module/pages/user_home.js',
         register_page: './src/user-management-module/pages/register_page.js',
+        check_page: './src/user-management-module/pages/check_page.js',
+        user_manage_page: './src/user-management-module/pages/user_manage_page.js',
         // Course Module
         course_page: './src/course-management-module/pages/course_page.js',
+        // Lib Module
+        lib_home: './src/resource-lib-module/pages/lib_home.js',
     },
     output: {
         filename: '[name].bundle.js',
@@ -70,6 +74,16 @@ module.exports = {
           filename: 'admin/register/index.html',
           chunks: ['register_page'],
         }),
+        new HtmlPlugin({
+          template: 'public/index.html',
+          filename: 'admin/check/index.html',
+          chunks: ['check_page'],
+        }),
+        new HtmlPlugin({
+          template: 'public/index.html',
+          filename: 'admin/user_manage/index.html',
+          chunks: ['user_manage_page'],
+        }),
 
         new HtmlPlugin({
           template: 'public/index.html',
@@ -82,6 +96,13 @@ module.exports = {
           template: 'public/index.html',
           filename: 'course/index.html',
           chunks: ['course_page'],
+        }),
+
+        // Lib
+        new HtmlPlugin({
+          template: 'public/index.html',
+          filename: 'lib/index.html',
+          chunks: ['lib_home'],
         }),
     ]
 }

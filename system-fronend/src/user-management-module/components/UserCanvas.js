@@ -3,6 +3,7 @@ import Button from 'react-bootstrap/Button';
 import Offcanvas from 'react-bootstrap/Offcanvas';
 import Card from 'react-bootstrap/Card';
 import ListGroup from 'react-bootstrap/ListGroup';
+import Signout from './Signout'
 
 export default function UserCanvas() {
     const [show, setShow] = useState(false);
@@ -30,7 +31,7 @@ export default function UserCanvas() {
                                     <ListGroup.Item>acitve</ListGroup.Item>
                                     <ListGroup.Item></ListGroup.Item>
                                 </ListGroup><br/>
-                                <Button variant='outline-danger' >退出登录</Button>
+                                <Signout/>
                             </Card.Body>
                             <Card.Footer className="text-muted">实验教学管理系统 | SE</Card.Footer>
                         </Card>

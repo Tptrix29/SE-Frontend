@@ -1,6 +1,6 @@
 import React from 'react';
 import "../../static/style.css"
-
+import { InputGroup, Form, Button} from 'react-bootstrap';
 
 export default class RegisterPanel extends React.Component{
     constructor(props){
@@ -9,23 +9,31 @@ export default class RegisterPanel extends React.Component{
 
     render(){
         return(
-            <div class='page-panel'>
-                <div class='login-welcome'>统一身份认证</div>
-
-                <div class='login-inputs'>
-                    <div class="input-group mb-3">
-                        <span class="input-group-text">用户名</span>
-                        <input type="text" class="form-control" placeholder="请输入用户名"/>
-                    </div>
-
-                    <div class="input-group mb-3">
-                        <span class="input-group-text">密码</span>
-                        <input type="password" class="form-control" placeholder="请输入密码" />
-                    </div>
+            <div class="page-panel">
+                <div class="page-info-center">
+                    <div class="page-title">注册新用户</div>
+                    <InputGroup className="mb-3">
+                         <InputGroup.Text>学/工号</InputGroup.Text>
+                        <Form.Control placeholder="请输入" />
+                    </InputGroup>
+                    <InputGroup className="mb-3">
+                         <InputGroup.Text >姓名</InputGroup.Text>
+                        <Form.Control placeholder="请输入" />
+                    </InputGroup>
+                    <InputGroup className="mb-3">
+                         <InputGroup.Text >邮箱</InputGroup.Text>
+                        <Form.Control placeholder="请输入" />
+                    </InputGroup>
+                    <InputGroup className="mb-3">
+                         <InputGroup.Text>密码</InputGroup.Text>
+                        <Form.Control placeholder="请输入密码" />
+                    </InputGroup>
+                    <InputGroup className="mb-3">
+                         <InputGroup.Text >确认密码</InputGroup.Text>
+                        <Form.Control placeholder="请确认密码" />
+                    </InputGroup>
+                    <Button variant='outline-dark'>确认</Button>
                 </div>
-                
-
-                <button type='button' className='btn btn-primary'>登录</button>
             </div>
         );
     }

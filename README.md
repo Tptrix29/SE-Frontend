@@ -21,14 +21,48 @@ npm run dev
 页面测试完成后，建议回退相关配置，并将页面信息填写到[页面配置表格](#页面配置)。
 
 ### 页面配置
-|entry key|source path (js file)| web path|module|writer|desp|
-|:--:|:--:|:--:|:--:|:--:|:--:|
-|index|./src/index.js|index.html|-|-|系统主页|
-|login|./src/user-management-module/pages/login.js|login|User Management|tp|登录页面|
-|admin_home|./src/user-management-module/pages/admin_home.js|admin|User Management|tp|管理员主页|
-|user_home|./src/user-management-module/pages/user_home.js|User|User Management|tp|用户（非管理员）主页|
-|register_page|./src/user-management-module/pages/lregister_page.js|register|User Management|tp|用户注册页面|
-|course_page|./src/course-management-module/pages/course_page.js|course|Course Management|tp|课程主页|
 
+#### User Management 
 
+|entry key|source path (js file)| web path| writer | desp |
+|:--:|:--:|:--:|:--:|:--:|
+|index|./src/index.js|index.html| tp | 测试主页 |
+|login|./src/user-management-module/pages/login.js|login| tp | 登录界面 |
+|admin_home|./src/user-management-module/pages/admin_home.js|admin| tp | 管理员主页 |
+|user_home|./src/user-management-module/pages/user_home.js|user| tp | 用户主页 |
+|register_page|./src/user-management-module/pages/lregister_page.js|register| tp | 用户注册 |
+|    check_page    |    ./src/user-management-module/pages/check_page.js    |    check    | tp | 用户查验 |
+| user_manage_page | ./src/user-management-module/pages/user_manage_page.js | user_manage | tp | 用户管理 |
+
+#### Course Mangement Module
+
+|  entry key  |                source path (js file)                | web path | writer |   desp   |      |
+| :---------: | :-------------------------------------------------: | :------: | :----: | :------: | ---- |
+| course_page | ./src/course-management-module/pages/course_page.js |  course  |   tp   | 课程主页 |      |
+|             |                                                     |          |        |          |      |
+|             |                                                     |          |        |          |      |
+
+#### Experiment Mangement Module
+
+| entry key | source path (js file) | web path | write | desp |
+| :-------: | :-------------------: | :------: | :---: | :--: |
+|           |                       |          |       |      |
+|           |                       |          |       |      |
+|           |                       |          |       |      |
+
+#### Score Mangement Module
+
+| entry key | source path (js file) | web path | writer | desp |
+| :-------: | :-------------------: | :------: | :----: | :--: |
+|           |                       |          |        |      |
+|           |                       |          |        |      |
+|           |                       |          |        |      |
+
+#### Resource Lib Module
+
+| entry key |            source path (js file)            | web path |       module        | writer | desp       |
+| :-------: | :-----------------------------------------: | :------: | :-----------------: | :----: | ---------- |
+| lib_home  | ./src/resource-lib-module/pages/lib_home.js |   Lib    | Resource Lib Module |   tp   | 资料库主页 |
+|           |                                             |          |                     |        |            |
+|           |                                             |          |                     |        |            |
 
