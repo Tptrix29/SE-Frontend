@@ -3,7 +3,7 @@ import "../../static/style.css"
 import UserCanvas from "./UserCanvas";
 
 
-export default class UserControllerBar extends React.Component{
+export class SystemControllerBar extends React.Component{
     constructor(props){
         super(props);
     }

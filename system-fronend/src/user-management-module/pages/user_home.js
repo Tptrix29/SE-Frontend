@@ -2,13 +2,13 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 
 import UserPanel from '../components/UserPanel';
-import UserControllerBar from '../components/UserControlBar';
+import { SystemControllerBar } from '../components/SystemControllerBar';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
     <div>
-        <UserControllerBar />
+        <SystemControllerBar/>
         <UserPanel />
     </div>
 );

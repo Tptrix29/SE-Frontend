@@ -19,9 +19,6 @@ export class CourseNav extends React.Component{
                         <Nav.Link href="#exp">实验</Nav.Link>
                     </Nav.Item>
                     <Nav.Item>
-                        <Nav.Link>资料</Nav.Link>
-                    </Nav.Item>
-                    <Nav.Item>
                         <Nav.Link eventKey="disabled" >考勤</Nav.Link>
                     </Nav.Item>
                     <Nav.Item>
