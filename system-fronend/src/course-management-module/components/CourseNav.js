@@ -11,7 +11,9 @@ export class CourseNav extends React.Component{
     render(){
         return(
             <div class="course-nav">
-                    <Nav className='nav-tab' variant="tabs" defaultActiveKey="#main" onSelect={(selectedKey) => (`selected ${selectedKey}`)}>
+                <span class="course-title">课程名</span>
+
+                <Nav className='nav-tab' variant="tabs" style={{justifyContent:"flex-end"}} defaultActiveKey="#main" onSelect={(selectedKey) => (`selected ${selectedKey}`)}>
                     <Nav.Item>
                         <Nav.Link href="#main">主页</Nav.Link>
                     </Nav.Item>
@@ -28,7 +30,6 @@ export class CourseNav extends React.Component{
                         <Nav.Link eventKey="disabled" >成绩</Nav.Link>
                     </Nav.Item>
                 </Nav>
-                <span class="course-title">课程名</span>
                 
             </div>
         );

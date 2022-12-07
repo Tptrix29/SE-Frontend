@@ -36,11 +36,11 @@ npm run dev
 
 #### Course Mangement Module
 
-|  entry key  |                source path (js file)                | web path | writer |   desp   |      |
-| :---------: | :-------------------------------------------------: | :------: | :----: | :------: | ---- |
-| course_page | ./src/course-management-module/pages/course_page.js |  course  |   tp   | 课程主页 |      |
-|             |                                                     |          |        |          |      |
-|             |                                                     |          |        |          |      |
+|  entry key  |                source path (js file)                | web path | writer |   desp   |
+| :---------: | :-------------------------------------------------: | :------: | :----: | :------: |
+| course_page | ./src/course-management-module/pages/course_page.js |  course  |   tp   | 课程主页 |
+|             |                                                     |          |        |          |
+|             |                                                     |          |        |          |
 
 #### Experiment Mangement Module
 

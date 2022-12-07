@@ -166,14 +166,15 @@ td {
 }
 
 .course-title{
+    padding-left: 2%;
     font-size: 1.5rem;
     font-weight: bold;
-    text-align: right;
-    width: 20%;
+    text-align: left;
+    width: 15%;
 }
 
 .nav-tab{
-    width: 70%;
+    width: 85%;
 }
 
 

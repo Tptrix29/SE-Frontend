@@ -19,7 +19,6 @@ export class SystemControllerBar extends React.Component{
                 <div class="user-control-box">
                   <UserCanvas class="user-control-box"/>
                 </div>
-                
             </div>
         );
     }
