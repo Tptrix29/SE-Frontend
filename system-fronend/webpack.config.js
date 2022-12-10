@@ -14,6 +14,9 @@ module.exports = {
         user_manage_page: './src/user-management-module/pages/user_manage_page.js',
         // Course Module
         course_page: './src/course-management-module/pages/course_page.js',
+        // Experiment Module
+        exp_page: './src/experiment-management-module/pages/exp_page.js',
+        add_exp_page: './src/experiment-management-module/pages/add_exp_page.js',
         // Lib Module
         lib_home: './src/resource-lib-module/pages/lib_home.js',
     },
@@ -96,6 +99,19 @@ module.exports = {
           template: 'public/index.html',
           filename: 'course/index.html',
           chunks: ['course_page'],
+        }),
+
+        // Exp
+        new HtmlPlugin({
+          template: 'public/index.html',
+          filename: 'course/exp/index.html',
+          chunks: ['exp_page'],
+        }),
+
+        new HtmlPlugin({
+          template: 'public/index.html',
+          filename: 'course/exp/add/index.html',
+          chunks: ['add_exp_page'],
         }),
 
         // Lib

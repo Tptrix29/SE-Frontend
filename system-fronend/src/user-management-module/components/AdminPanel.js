@@ -27,7 +27,6 @@ export default class AdminPanel extends React.Component{
                 imgSource="img/library.jpeg"
                 title="课程管理"
                 textContent="管理课程信息" />
-                
             </div>
         );
     }

@@ -25,7 +25,7 @@ export default class UserManagePanel extends React.Component{
                         <Card.Body>
                             <Card.Title>查询用户信息：</Card.Title>
 
-                            <SearchBar tip="学/工号"/>
+                            <SearchBar tip="学/工号" addDropdown={false}/>
                             <ListGroup style={{width:"80%", textAlign:"center", marginBottom: "2%"}}>
                                 <ListGroup.Item>学/工号：{this.state.user.uid}</ListGroup.Item>
                                 <ListGroup.Item style={{fontWeight:"bold"}}>用户名：{this.state.user.username}</ListGroup.Item>

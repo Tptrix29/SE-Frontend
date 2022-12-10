@@ -1,8 +1,9 @@
 import React from 'react';
 import "../../static/style.css"
-import Nav from 'react-bootstrap/Nav'
-import Card from 'react-bootstrap/Card'
 import { CourseNav } from './CourseNav';
+import ExpItem from '../../experiment-management-module/components/ExpItem';
+import AddTrigger from '../../experiment-management-module/components/AddTrigger';
+
 
 export class CoursePanel extends React.Component{
     constructor(props){
@@ -13,6 +14,12 @@ export class CoursePanel extends React.Component{
         return(
             <div class="page-panel">
                 <CourseNav/>
+                {/* <CourseIntro/> */}
+
+                <ExpItem/>
+                <ExpItem/>
+                <AddTrigger/>
+
             </div>
         );
     }

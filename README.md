@@ -44,11 +44,11 @@ npm run dev
 
 #### Experiment Mangement Module
 
-| entry key | source path (js file) | web path | write | desp |
-| :-------: | :-------------------: | :------: | :---: | :--: |
-|           |                       |          |       |      |
-|           |                       |          |       |      |
-|           |                       |          |       |      |
+|  entry key   |                  source path (js file)                  |    web path    | write |   desp   |
+| :----------: | :-----------------------------------------------------: | :------------: | :---: | :------: |
+|   exp_page   |  ./src/experiment-management-module/pages/exp_page.js   |   course/exp   |  tp   | 实验信息 |
+| add_exp_page | ./src/experiment-management-module/pages/add_exp_page.j | course/exp/add |  tp   | 实验添加 |
+|              |                                                         |                |       |          |
 
 #### Score Mangement Module
 

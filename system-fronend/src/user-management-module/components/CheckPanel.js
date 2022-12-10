@@ -1,4 +1,5 @@
 import React from 'react';
+import '../../static/style.css';
 import {Table, Pagination} from 'react-bootstrap';
 import CheckRow from './CheckRow';
 
