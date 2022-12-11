@@ -52,11 +52,11 @@ npm run dev
 
 #### Score Mangement Module
 
-| entry key | source path (js file) | web path | writer | desp |
-| :-------: | :-------------------: | :------: | :----: | :--: |
-|           |                       |          |        |      |
-|           |                       |          |        |      |
-|           |                       |          |        |      |
+|      entry key      |                    source path (js file)                    |       web path        | writer |   desp   |
+| :-----------------: | :---------------------------------------------------------: | :-------------------: | :----: | :------: |
+|   assignment_page   |   ./src/score-management-module/pages/assignment_page.js    |   course/assignment   |   tp   | 作业信息 |
+| add_assignment_page | ./src/score-management-module/pages/ad d_assignment_page.js | course/assignment/add |   tp   | 作业添加 |
+|                     |                                                             |                       |        |          |
 
 #### Resource Lib Module
 

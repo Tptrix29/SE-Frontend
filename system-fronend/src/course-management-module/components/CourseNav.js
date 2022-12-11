@@ -1,7 +1,6 @@
 import React from 'react';
 import "../../static/style.css"
 import Nav from 'react-bootstrap/Nav'
-import Card from 'react-bootstrap/Card'
 
 export class CourseNav extends React.Component{
     constructor(props){
@@ -13,21 +12,21 @@ export class CourseNav extends React.Component{
             <div class="course-nav">
                 <span class="course-title">课程名</span>
 
-                <Nav className='nav-tab' variant="tabs" style={{justifyContent:"flex-end"}} defaultActiveKey="#main" onSelect={(selectedKey) => (`selected ${selectedKey}`)}>
+                <Nav className='nav-tab' variant="tabs" style={{justifyContent:"flex-end"}} defaultActiveKey="main" onSelect={(selectedKey) => {this.props.changeFunc(selectedKey)}}>
                     <Nav.Item>
-                        <Nav.Link href="#main">主页</Nav.Link>
+                        <Nav.Link eventKey="main">主页</Nav.Link>
                     </Nav.Item>
                     <Nav.Item>
-                        <Nav.Link href="#exp">实验</Nav.Link>
+                        <Nav.Link eventKey="exp">实验</Nav.Link>
                     </Nav.Item>
                     <Nav.Item>
-                        <Nav.Link eventKey="disabled" >考勤</Nav.Link>
+                        <Nav.Link eventKey="attendance">考勤</Nav.Link>
                     </Nav.Item>
                     <Nav.Item>
-                        <Nav.Link eventKey="disabled" >作业</Nav.Link>
+                        <Nav.Link eventKey="assignment">作业</Nav.Link>
                     </Nav.Item>
                     <Nav.Item>
-                        <Nav.Link eventKey="disabled" >成绩</Nav.Link>
+                        <Nav.Link eventKey="score">成绩</Nav.Link>
                     </Nav.Item>
                 </Nav>
                 

@@ -34,11 +34,9 @@ export default class FilePanel extends React.Component{
         
     }
 
-
     
-
     render(){
-        var isEditable = this.state.isEditable;
+        var isEditable = this.props.isEditable;
         return(
             <div>
                 {this.state.files.map((element)=>{
@@ -46,7 +44,9 @@ export default class FilePanel extends React.Component{
                         <FileBar isEditable={isEditable} file={element}/>
                     );
                 })}
-                <a class="primary-link mt-3" onClick={this.addFile}>添加新文件...</a>
+               {isEditable ? (
+                     <a class="primary-link" onClick={this.addFile}>添加新文件...</a>
+               ):null}
             </div>
         );
     }

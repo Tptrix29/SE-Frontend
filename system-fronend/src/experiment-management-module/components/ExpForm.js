@@ -29,7 +29,7 @@ export default class ExpForm extends React.Component{
                                     </InputGroup>
                                     
                                     <div>相关文件：</div>
-                                    <FilePanel/><br/>
+                                    <FilePanel isEditable={true}/><br/>
                                     <Button variant="success" class="mt-3">确认修改</Button>
                                 </div>
         );

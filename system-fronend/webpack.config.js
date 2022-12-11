@@ -17,6 +17,9 @@ module.exports = {
         // Experiment Module
         exp_page: './src/experiment-management-module/pages/exp_page.js',
         add_exp_page: './src/experiment-management-module/pages/add_exp_page.js',
+        // Score Module -- Assignment
+        assignment_page: './src/score-management-module/pages/assignment_page.js',
+        add_assignment_page: './src/score-management-module/pages/add_assignment_page.js',
         // Lib Module
         lib_home: './src/resource-lib-module/pages/lib_home.js',
     },
@@ -112,6 +115,19 @@ module.exports = {
           template: 'public/index.html',
           filename: 'course/exp/add/index.html',
           chunks: ['add_exp_page'],
+        }),
+
+        // Score -- Assignment
+        new HtmlPlugin({
+          template: 'public/index.html',
+          filename: 'course/assignment/index.html',
+          chunks: ['assignment_page'],
+        }),
+
+        new HtmlPlugin({
+          template: 'public/index.html',
+          filename: 'course/assignment/add/index.html',
+          chunks: ['add_assignment_page'],
         }),
 
         // Lib

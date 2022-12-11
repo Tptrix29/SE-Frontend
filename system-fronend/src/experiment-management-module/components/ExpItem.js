@@ -14,7 +14,7 @@ export default class ExpItem extends React.Component{
             <div class="item-bar">
                 <div>实验名</div>
                 <div>时间</div>
-                <Button variant="primary">See</Button>
+                <Button variant="primary">查看详情</Button>
             </div>
         );
     }

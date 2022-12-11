@@ -4,6 +4,7 @@ import '../../static/style.css';
 import { Form, InputGroup } from "react-bootstrap";
 
 import ExpForm from "./ExpForm";
+import FilePanel from "./FilePanel";
 
 export default class ExpIntro extends React.Component{
     constructor(props){
@@ -12,11 +13,11 @@ export default class ExpIntro extends React.Component{
             isEditable: true,
             isEditing: false,
             expInfo:{
+                name: "TestExp",
                 owner: "xxx", 
                 time: new Date().toString(),
                 equipment: "烧杯",
                 desp: "Esay",
-                files: "hello",
             }
         }
     }
@@ -33,7 +34,7 @@ export default class ExpIntro extends React.Component{
         return(
             <div class="page-panel">
                 <div class="page-title">
-                    <div>课程名称 | 实验名称</div>
+                    <div>课程名称 | {this.state.expInfo.name}</div>
                     { editable ?
                     <div id="manage-exp">
                         <Button variant="warning" onClick={this.toEdit}>{
@@ -44,7 +45,6 @@ export default class ExpIntro extends React.Component{
                 </div>
                 
                 <div class="intro-panel">
-                    
                     {
                         !editingState ? (
                             <div>
@@ -53,6 +53,7 @@ export default class ExpIntro extends React.Component{
                                 <div>相关器材：{this.state.expInfo.equipment}</div>
                                 <div>实验描述：{this.state.expInfo.desp}</div>
                                 <div>相关文件：</div>
+                                <FilePanel/>
                             </div>
                             ):(
                                 <ExpForm expInfo={this.state.expInfo}/>

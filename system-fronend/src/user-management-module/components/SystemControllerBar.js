@@ -12,12 +12,12 @@ export class SystemControllerBar extends React.Component{
 
     render(){
         return(
-            <div class="sys-bar">
+            <div className="sys-bar">
                 <img src={logo} alt="logo" width="5%"/>
-                <span class="sys-title">实验教学管理系统</span>&nbsp;
+                <span className="sys-title">实验教学管理系统</span>&nbsp;
                 <Button variant="outline-success">资料库</Button>
-                <div class="user-control-box">
-                  <UserCanvas class="user-control-box"/>
+                <div className="user-control-box">
+                  <UserCanvas className="user-control-box"/>
                 </div>
             </div>
         );
