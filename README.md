@@ -48,21 +48,19 @@ npm run dev
 | :----------: | :-----------------------------------------------------: | :------------: | :---: | :------: |
 |   exp_page   |  ./src/experiment-management-module/pages/exp_page.js   |   course/exp   |  tp   | 实验信息 |
 | add_exp_page | ./src/experiment-management-module/pages/add_exp_page.j | course/exp/add |  tp   | 实验添加 |
-|              |                                                         |                |       |          |
 
 #### Score Mangement Module
 
 |      entry key      |                    source path (js file)                    |       web path        | writer |   desp   |
 | :-----------------: | :---------------------------------------------------------: | :-------------------: | :----: | :------: |
+|   attendance_page   |   ./src/score-management-module/pages/attendance_page.js    |   course/attendance   |   tp   | 考勤信息 |
+| add_attendance_page | ./src/score-management-module/pages/ad d_attendance_page.js | course/attendance/add |   tp   | 考勤添加 |
 |   assignment_page   |   ./src/score-management-module/pages/assignment_page.js    |   course/assignment   |   tp   | 作业信息 |
 | add_assignment_page | ./src/score-management-module/pages/ad d_assignment_page.js | course/assignment/add |   tp   | 作业添加 |
-|                     |                                                             |                       |        |          |
 
 #### Resource Lib Module
 
 | entry key |            source path (js file)            | web path |       module        | writer | desp       |
 | :-------: | :-----------------------------------------: | :------: | :-----------------: | :----: | ---------- |
 | lib_home  | ./src/resource-lib-module/pages/lib_home.js |   Lib    | Resource Lib Module |   tp   | 资料库主页 |
-|           |                                             |          |                     |        |            |
-|           |                                             |          |                     |        |            |
 

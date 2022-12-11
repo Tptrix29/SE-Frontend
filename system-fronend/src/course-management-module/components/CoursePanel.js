@@ -5,6 +5,7 @@ import CourseIntro from './CourseIntro';
 import ExpItem from '../../experiment-management-module/components/ExpItem';
 import AddTrigger from '../../experiment-management-module/components/AddTrigger';
 import AssignmentItem from '../../score-management-module/components/AssignmentItem';
+import AttendanceItem from '../../score-management-module/components/AttendanceItem';
 
 
 export class CoursePanel extends React.Component{
@@ -41,7 +42,8 @@ export class CoursePanel extends React.Component{
                         );
                         case "attendance": return(
                             <div id="attendance" class="intro-panel">
-                    
+                                <AttendanceItem manage={true}/>
+                                <AttendanceItem manage={false}/>
                             </div>
                         );
                         case "assignment": return(

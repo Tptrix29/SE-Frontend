@@ -18,7 +18,6 @@ export default class AssignmentIntro extends React.Component{
                 owner: "xxx",
                 ddl: new Date().toString(),
                 desp: "None",
-                
             }
         }
     }
@@ -57,6 +56,7 @@ export default class AssignmentIntro extends React.Component{
                     {!editingState ? (
                         <div>
                             <div>创建者：{this.state.assignmentInfo.owner}</div>
+                            <div>截止日期：{this.state.assignmentInfo.ddl}</div>
                             <div>作业描述：{this.state.assignmentInfo.desp}</div>
                             <div>相关文件：</div>
                             <FilePanel isEditable={false}/>
