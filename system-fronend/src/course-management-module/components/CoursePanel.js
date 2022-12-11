@@ -6,6 +6,7 @@ import ExpItem from '../../experiment-management-module/components/ExpItem';
 import AddTrigger from '../../experiment-management-module/components/AddTrigger';
 import AssignmentItem from '../../score-management-module/components/AssignmentItem';
 import AttendanceItem from '../../score-management-module/components/AttendanceItem';
+import ScoreView from '../../score-management-module/components/ScoreView';
 
 
 export class CoursePanel extends React.Component{
@@ -55,7 +56,7 @@ export class CoursePanel extends React.Component{
                         );
                         case "score": return (
                             <div id="score" class="intro-panel">
-                                
+                                <ScoreView/>
                             </div>
                         );
                         default: return null;

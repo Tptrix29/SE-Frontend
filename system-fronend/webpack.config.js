@@ -23,6 +23,9 @@ module.exports = {
         // Score Module -- Assignment
         assignment_page: './src/score-management-module/pages/assignment_page.js',
         add_assignment_page: './src/score-management-module/pages/add_assignment_page.js',
+        // Score Module -- Total Score
+        score_report_page: './src/score-management-module/pages/score_report_page.js',
+        
         // Lib Module
         lib_home: './src/resource-lib-module/pages/lib_home.js',
     },
@@ -146,7 +149,13 @@ module.exports = {
           chunks: ['add_assignment_page'],
         }),
 
-        // Score -- Total Score
+        // Score -- Report
+        // Score -- Assignment
+        new HtmlPlugin({
+          template: 'public/index.html',
+          filename: 'course/score_report/index.html',
+          chunks: ['score_report_page'],
+        }),
 
         // Lib
         new HtmlPlugin({

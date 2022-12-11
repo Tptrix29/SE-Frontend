@@ -30,7 +30,7 @@ export default class AssignmentForm extends React.Component{
                                     
                     <div>相关文件：</div>
                     <FilePanel isEditable={true}/><br/>
-                    <Button variant="success">确认修改</Button>
+                    <Button variant="outline-success">确认修改</Button>
             </div>
         );
     }

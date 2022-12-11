@@ -9,12 +9,6 @@ export default class CheckPanel extends React.Component{
         this.state = {
             row_Max: 8,
             colNames: ["序号", "学/工号", "用户名", "邮箱", "操作"],
-            get col_names() {
-                return this.colName;
-            },
-            set col_names(value) {
-                this.colName = value;
-            },
             data: [
                 {
                     uid: 1119229,

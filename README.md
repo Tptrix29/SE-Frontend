@@ -39,8 +39,6 @@ npm run dev
 |  entry key  |                source path (js file)                | web path | writer |   desp   |
 | :---------: | :-------------------------------------------------: | :------: | :----: | :------: |
 | course_page | ./src/course-management-module/pages/course_page.js |  course  |   tp   | 课程主页 |
-|             |                                                     |          |        |          |
-|             |                                                     |          |        |          |
 
 #### Experiment Mangement Module
 
@@ -57,6 +55,7 @@ npm run dev
 | add_attendance_page | ./src/score-management-module/pages/ad d_attendance_page.js | course/attendance/add |   tp   | 考勤添加 |
 |   assignment_page   |   ./src/score-management-module/pages/assignment_page.js    |   course/assignment   |   tp   | 作业信息 |
 | add_assignment_page | ./src/score-management-module/pages/ad d_assignment_page.js | course/assignment/add |   tp   | 作业添加 |
+|  score_report_page  |  ./src/score-management-module/pages/score_report_page.js   |  course/score_report  |   tp   | 成绩报告 |
 
 #### Resource Lib Module
 

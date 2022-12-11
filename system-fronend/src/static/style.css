@@ -138,6 +138,8 @@ td {
     /* border: 1px solid black; */
 }
 
+
+
 .page-skipper{
     /* align-items: center; */
     justify-content: center;
@@ -244,6 +246,25 @@ td {
     border-radius: 50px;
     background-color: rgb(250, 252, 255);
     transition: .5s;
+}
+
+/* Score View */
+.score-title{
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: rgb(50, 50, 50);
+    margin-bottom: 3%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 95%;
+    /* border: 1px solid black; */
+}
+
+.weight-box{
+    display: flex;
+    justify-content: flex-end;
+    /* border: 1px solid black; */
 }
 
 
