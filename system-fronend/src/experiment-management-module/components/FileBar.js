@@ -11,7 +11,7 @@ export default class FileBar extends React.Component{
 
     render(){
         return(
-            <div class="item-bar">
+            <div className="item-bar">
                 <div>{this.props.file.filename}</div>
                 <div>{this.props.file.time}</div>
                 <div>

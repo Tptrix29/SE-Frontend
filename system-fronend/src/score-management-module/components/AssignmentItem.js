@@ -10,7 +10,7 @@ export default class AssignmentItem extends React.Component{
 
     render(){
         return(
-            <div class="item-bar">
+            <div className="item-bar">
                 <div>作业名称</div>
                 <div>截止时间</div>
                 <div>

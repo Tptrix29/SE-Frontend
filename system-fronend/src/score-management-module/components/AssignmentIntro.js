@@ -32,8 +32,8 @@ export default class AssignmentIntro extends React.Component{
         const isEditable = this.state.isEditable;
         var editingState = this.state.isEditing;
         return(
-            <div class="page-panel">
-                <div class="page-title">
+            <div className="page-panel">
+                <div className="page-title">
                     <div>课程名称 | 作业名称</div>
                     {isEditable ? (
                         <div>
@@ -45,14 +45,14 @@ export default class AssignmentIntro extends React.Component{
                     ):(
                         <div style={{fontSize: "1.2rem"}}>
                             {this.state.isSubmitted ? (
-                                <a class="link-success">已提交</a>
+                                <a className="link-success">已提交</a>
                             ):(
-                                <a class="link-warning">未提交</a>
+                                <a className="link-warning">未提交</a>
                             )}
                         </div>
                     )}
                 </div>
-                <div class="intro-panel">
+                <div className="intro-panel">
                     {!editingState ? (
                         <div>
                             <div>创建者：{this.state.assignmentInfo.owner}</div>

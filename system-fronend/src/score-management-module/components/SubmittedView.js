@@ -10,9 +10,9 @@ export default class SubmittedView extends React.Component{
 
     render(){
         return(
-            <div class="intro-panel">
+            <div className="intro-panel">
                 <hr />
-                <div class="page-title">提交纪录</div>
+                <div className="page-title">提交纪录</div>
                 <SubmittedRow/>
             </div>
         );

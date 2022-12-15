@@ -45,7 +45,7 @@ export default class FilePanel extends React.Component{
                     );
                 })}
                {isEditable ? (
-                     <a class="primary-link" onClick={this.addFile}>添加新文件...</a>
+                     <a className="primary-link" onClick={this.addFile}>添加新文件...</a>
                ):null}
             </div>
         );

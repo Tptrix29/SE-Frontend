@@ -28,8 +28,8 @@ export default class AttendanceIntro extends React.Component{
     render(){
         var editingState = this.state.isEditing;
         return(
-            <div class="page-panel">
-                <div class="page-title">
+            <div className="page-panel">
+                <div className="page-title">
                     <div>课程名称 | {this.state.attendanceInfo.name}</div>
                     <div>
                         <Button variant="warning" onClick={this.toEdit}>{!editingState? "编辑":"取消编辑"}</Button>&nbsp;&nbsp;
@@ -37,7 +37,7 @@ export default class AttendanceIntro extends React.Component{
                     </div>
                 </div>
                 
-                <div class="intro-panel">
+                <div className="intro-panel">
                     {!editingState ? (
                         <div>
                             <div>创建者：{this.state.attendanceInfo.owner}</div>

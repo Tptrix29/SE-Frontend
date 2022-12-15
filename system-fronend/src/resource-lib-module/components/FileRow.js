@@ -13,7 +13,7 @@ export default class FileRow extends React.Component{
              <tr>
                 <td>{this.props.nFile}</td>
                 <td>
-                    <a class="link-primary">{this.props.file.filename}</a>
+                    <a className="link-primary">{this.props.file.filename}</a>
                 </td>
                 <td>{this.props.file.ofCourse}</td>
                 <td>

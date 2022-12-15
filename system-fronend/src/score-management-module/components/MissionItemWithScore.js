@@ -9,7 +9,7 @@ export default class MissionItemWithScore extends React.Component{
 
     render(){
         return(
-            <div class="item-bar">
+            <div className="item-bar">
                 <div>任务名</div>
                 <div>得分</div>
             </div>

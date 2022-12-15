@@ -12,9 +12,9 @@ export default class SubmissionPanel extends React.Component{
 
     render(){
         return(
-            <div class="intro-panel">
+            <div className="intro-panel">
                 <hr />
-                <div class="page-title">提交作业</div>
+                <div className="page-title">提交作业</div>
                 <div>
                     <InputGroup>
                         <InputGroup.Text>说明信息</InputGroup.Text>

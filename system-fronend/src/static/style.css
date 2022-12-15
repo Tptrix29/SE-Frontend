@@ -84,11 +84,12 @@ td {
 .sys-title{
     /* border: 1px solid black; */
     margin-left: 2%;
-    width: 25%;
+    width: 100%;
     font-size: 2rem;
     font-weight: bolder;
     right: 0px;
     color: rgb(50, 50, 50);
+    display: flex;
 }
 
 .home-panel{

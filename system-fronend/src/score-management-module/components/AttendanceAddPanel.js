@@ -17,9 +17,9 @@ export default class AttendanceAddPanel extends React.Component{
 
     render(){
         return(
-            <div class="page-panel">
-                <div class="page-title">创建考勤任务</div>
-                <div class="page-info-left">
+            <div className="page-panel">
+                <div className="page-title">创建考勤任务</div>
+                <div className="page-info-left">
                    <AttendanceForm attendanceInfo={this.state.attendanceInfo}/>
                 </div>
             </div>

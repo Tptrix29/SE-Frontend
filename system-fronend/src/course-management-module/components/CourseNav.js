@@ -9,8 +9,8 @@ export class CourseNav extends React.Component{
 
     render(){
         return(
-            <div class="course-nav">
-                <span class="course-title">课程名</span>
+            <div className="course-nav">
+                <span className="course-title">课程名</span>
 
                 <Nav className='nav-tab' variant="tabs" style={{justifyContent:"flex-end"}} defaultActiveKey="main" onSelect={(selectedKey) => {this.props.changeFunc(selectedKey)}}>
                     <Nav.Item>

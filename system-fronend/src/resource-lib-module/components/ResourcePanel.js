@@ -30,12 +30,12 @@ export default class ResourcePanel extends React.Component{
     render(){
         var n_file = 0;
         return(
-            <div class="home-panel">
+            <div className="home-panel">
                 <SearchBar tip="资料名" addDropdown={true} />
                 <div>
                     <Button variant='primary'>批量下载</Button>
                 </div>
-                <div class="resource-search-result">
+                <div className="resource-search-result">
                     <Table striped bordered hover size="lg">
                         <thead>
                             <tr>
@@ -52,7 +52,7 @@ export default class ResourcePanel extends React.Component{
                         </tbody>
                     </Table>
                 </div>
-                <div class="page-skipper">
+                <div className="page-skipper">
                     <Pagination>
                         <Pagination.First />
                         <Pagination.Prev />

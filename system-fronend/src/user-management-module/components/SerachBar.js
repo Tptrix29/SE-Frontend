@@ -12,7 +12,7 @@ export default class UserManagePanel extends React.Component{
 
     render(){
         return(
-            <div class="search-bar">
+            <div className="search-bar">
                 <InputGroup style={{width: '60%'}}>
                     <InputGroup.Text>{this.props.tip}</InputGroup.Text>
                     <Form.Control placeholder="请输入" />

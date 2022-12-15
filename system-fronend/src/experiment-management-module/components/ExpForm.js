@@ -30,7 +30,7 @@ export default class ExpForm extends React.Component{
                                     
                                     <div>相关文件：</div>
                                     <FilePanel isEditable={true}/><br/>
-                                    <Button variant="success" class="mt-3">确认修改</Button>
+                                    <Button variant="success" className="mt-3">确认修改</Button>
                                 </div>
         );
     }

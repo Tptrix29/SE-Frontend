@@ -9,12 +9,12 @@ export default class FunctionCard extends React.Component{
 
     render(){
         return(
-            <div class="card func-card">
-                <img src={this.props.imgSource}  class="card-img-top" alt="lib"/>
-                <div class="card-body">
-                    <h5 class="card-title">{this.props.title}</h5>
-                    <p class="card-text">{this.props.textContent}</p>
-                    <a href="#" class="btn btn-primary">前往查看</a>
+            <div className="card func-card">
+                <img src={this.props.imgSource}  className="card-img-top" alt="lib"/>
+                <div className="card-body">
+                    <h5 className="card-title">{this.props.title}</h5>
+                    <p className="card-text">{this.props.textContent}</p>
+                    <a href="#" className="btn btn-primary">前往查看</a>
                 </div>
             </div>
         );

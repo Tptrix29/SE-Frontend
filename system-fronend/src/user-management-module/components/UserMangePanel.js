@@ -18,9 +18,9 @@ export default class UserManagePanel extends React.Component{
     render(){
         const [type, text] = this.state.user.isActive ? ["link-success", "已激活"]:["link-warning", "未激活"];
         return(
-            <div class="page-panel">
-                <div class="page-info-left">
-                    <div class="page-title">用户管理</div>
+            <div className="page-panel">
+                <div className="page-info-left">
+                    <div className="page-title">用户管理</div>
                     <Card>
                         <Card.Body>
                             <Card.Title>查询用户信息：</Card.Title>
@@ -30,7 +30,7 @@ export default class UserManagePanel extends React.Component{
                                 <ListGroup.Item>学/工号：{this.state.user.uid}</ListGroup.Item>
                                 <ListGroup.Item style={{fontWeight:"bold"}}>用户名：{this.state.user.username}</ListGroup.Item>
                                 <ListGroup.Item>邮箱：
-                                    <a class="link-primary">
+                                    <a className="link-primary">
                                         {this.state.user.email}
                                     </a>
                                     </ListGroup.Item>

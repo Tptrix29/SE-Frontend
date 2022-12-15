@@ -9,9 +9,9 @@ export default class RegisterPanel extends React.Component{
 
     render(){
         return(
-            <div class="page-panel">
-                <div class="page-info-center">
-                    <div class="page-title">注册新用户</div>
+            <div className="page-panel">
+                <div className="page-info-center">
+                    <div className="page-title">注册新用户</div>
                     <InputGroup className="mb-3">
                          <InputGroup.Text>学/工号</InputGroup.Text>
                         <Form.Control placeholder="请输入" />

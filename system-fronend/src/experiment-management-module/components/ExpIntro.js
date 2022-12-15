@@ -32,8 +32,8 @@ export default class ExpIntro extends React.Component{
         const editable = this.state.isEditable;
         var editingState = this.state.isEditing;
         return(
-            <div class="page-panel">
-                <div class="page-title">
+            <div className="page-panel">
+                <div className="page-title">
                     <div>课程名称 | {this.state.expInfo.name}</div>
                     { editable ?
                     <div id="manage-exp">
@@ -44,7 +44,7 @@ export default class ExpIntro extends React.Component{
                     </div>:null}
                 </div>
                 
-                <div class="intro-panel">
+                <div className="intro-panel">
                     {
                         !editingState ? (
                             <div>

@@ -9,7 +9,7 @@ export default class AddTrigger extends React.Component{
 
     render(){
         return(
-            <div class="add-circle">+</div>
+            <div className="add-circle">+</div>
         );
     }
 }

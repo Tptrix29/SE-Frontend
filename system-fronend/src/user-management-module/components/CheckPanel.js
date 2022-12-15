@@ -38,7 +38,7 @@ export default class CheckPanel extends React.Component{
     render(){
         var n_row = 0;
         return (
-            <div class="page-panel">
+            <div className="page-panel">
                 <Table striped bordered hover size="sm">
                 <thead>
                     <tr>{
@@ -53,7 +53,7 @@ export default class CheckPanel extends React.Component{
                     })}
                 </tbody>
                 </Table>
-                <div class="page-skipper">
+                <div className="page-skipper">
                 <Pagination>
       <Pagination.First />
       <Pagination.Prev />

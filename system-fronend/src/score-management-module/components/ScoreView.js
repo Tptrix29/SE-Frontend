@@ -35,8 +35,8 @@ export default class ScoreView extends React.Component{
         var attWeight = this.state.attWeight;
         var assWeight = this.state.assWeight;
         return(
-            <div class="intro-panel">
-                <div class="score-title mt-3">
+            <div className="intro-panel">
+                <div className="score-title mt-3">
                     <div>考勤任务</div>
                     <div className="weight-box">
                         {
@@ -61,7 +61,7 @@ export default class ScoreView extends React.Component{
 
                 <hr/>
 
-                <div class="score-title mt-3">
+                <div className="score-title mt-3">
                     <div>作业任务</div>
                     <div className="weight-box">
                         {
@@ -91,7 +91,7 @@ export default class ScoreView extends React.Component{
                     <Button variant="outline-success">查看成绩报告</Button>&nbsp;&nbsp;&nbsp;&nbsp;
                     <Button variant="outline-primary">计算总成绩</Button>
                     </div>:
-                    <div class="score-title mt-3">总成绩：90/100</div>
+                    <div className="score-title mt-3">总成绩：90/100</div>
                 }
 
             </div>

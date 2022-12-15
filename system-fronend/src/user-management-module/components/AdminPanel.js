@@ -10,7 +10,7 @@ export default class AdminPanel extends React.Component{
 
     render(){
         return(
-            <div class="home-panel">
+            <div className="home-panel">
                 <FunctionCard 
                 imgSource="img/library.jpeg"
                 title="用户注册"

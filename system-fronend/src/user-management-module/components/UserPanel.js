@@ -10,7 +10,7 @@ export default class CrousePanel extends React.Component{
 
     render(){
         return(
-            <div class="home-panel">
+            <div className="home-panel">
                 <FunctionCard 
                 imgSource="img/library.jpeg"
                 title="高等数学"

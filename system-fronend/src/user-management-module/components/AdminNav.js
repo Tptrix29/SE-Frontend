@@ -8,21 +8,21 @@ export default class AdminNav extends React.Component{
 
     render(){
         return(
-            <ul class="nav flex-column side-nav">
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">控制面板</a>
+            <ul className="nav flex-column side-nav">
+                <li className="nav-item">
+                    <a className="nav-link active" aria-current="page" href="#">控制面板</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link ">用户注册</a>
+                <li className="nav-item">
+                    <a className="nav-link ">用户注册</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">用户查验</a>
+                <li className="nav-item">
+                    <a className="nav-link" href="#">用户查验</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">用户管理</a>
+                <li className="nav-item">
+                    <a className="nav-link" href="#">用户管理</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link ">课程管理</a>
+                <li className="nav-item">
+                    <a className="nav-link ">课程管理</a>
                 </li>
                 
             </ul>

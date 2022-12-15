@@ -9,7 +9,7 @@ export default class CourseIntro extends React.Component{
 
     render(){
         return(
-            <div class="mt-3">
+            <div className="mt-3">
                 课程状态：<br/>
                 责任教师：zhang XX<br/>
                 任课教师：<br/>
