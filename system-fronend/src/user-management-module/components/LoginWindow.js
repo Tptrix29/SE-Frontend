@@ -2,6 +2,7 @@ import React from 'react';
 import "../../static/style.css"
 import { FloatingLabel, Form} from 'react-bootstrap';
 import LoginApiClient from '../service/LoginApiClient.js';
+import { WebPathConfig } from '../../config/web-path';
 
 export default class LoginWindow extends React.Component{
     constructor(props){
@@ -12,7 +13,8 @@ export default class LoginWindow extends React.Component{
         }
     }
     componentDidMount(){
-        document.getElementById('floatingPassword').click()
+        // console.log(window.location)
+        
     }
 
     updateNid = (event)=>{
@@ -30,7 +32,7 @@ export default class LoginWindow extends React.Component{
     }
 
     handleNidKeyDown = (event) => {
-        window.focus()
+
     }
 
     handlePasswordKeyDown = (event) => {
@@ -39,9 +41,27 @@ export default class LoginWindow extends React.Component{
         }
     }
 
-    execLogin = ()=>{
-        var res = LoginApiClient.login(this.state.nid, this.state.password);
-        console.log(res);
+    execLogin = () => {
+        return LoginApiClient.login(this.state.nid, this.state.password).then((resp) => {
+            if(resp.data.isAdmin){
+                WebPathConfig.toURL('/admin', {
+                    token: resp.data.token
+                })
+            }
+            else{
+                WebPathConfig.toURL('/user', {
+                    token: resp.data.token
+                })
+
+            }
+        }).catch((err) => {
+            console.log(err)
+            alert("用户信息错误，请重新输入")
+            this.setState({
+                nid: '',
+                password: ''
+            })
+        })
     }
 
     render(){
@@ -49,14 +69,14 @@ export default class LoginWindow extends React.Component{
             <div className='login-box'>
                 <div className='login-welcome'>统一身份认证</div>
                 <div className="input-box">
-                    <FloatingLabel controlId="floatingNid" label="学/工号" className='mt-3' onChange={(event) => this.updateNid(event)}>
-                        <Form.Control type="text" placeholder="uid"/>
+                    <FloatingLabel controlId="floatingNid" label="学/工号" className='mt-3' >
+                        <Form.Control type="text" placeholder="uid"  value={this.state.nid} onChange={(event) => this.updateNid(event)} />
                     </FloatingLabel>
-                    <FloatingLabel controlId="floatingPassword" label="密码" onChange={(event) => this.updatePassword(event)} onKeyDown={(event) => this.handlePasswordKeyDown(event)} >
-                        <Form.Control type="password" placeholder="Password" className='mt-3' />
+                    <FloatingLabel controlId="floatingPassword" label="密码" >
+                        <Form.Control type="password" placeholder="Password" className='mt-3' value={this.state.password} onChange={(event) => this.updatePassword(event)} onKeyDown={(event) => this.handlePasswordKeyDown(event)} />
                     </FloatingLabel>
                 </div>
-                <button id="btn" type='button' className='btn btn-primary' onClick={this.execLogin}>登录</button>
+                <button type='button' className='btn btn-primary' onClick={this.execLogin}>登录</button>
             </div>
         );
     }
