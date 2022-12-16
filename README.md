@@ -5,15 +5,30 @@ Front-end page of **Experiment Management System** by React.
 - npm 8.19.2
 - React 18.2.0
 - Bootstrap 5.2.3
+- Ant Design 5.0.3
+- Axios 1.2.1
 
 ### 开发环境运行
 ```
 git clone https://github.com/Tptrix29/SE-Frontend
 cd SE-Frontend/system-fronend
+npm install
 npm run dev
 ```
 
+### 生产环境运行
+
+```shell
+git clone https://github.com/Tptrix29/SE-Frontend
+cd SE-Frontend/system-fronend
+npm install 
+npm run build
+```
+
+
+
 ### 新增页面测试
+
 修改`webpack.config.js`文件: (详细操作见配置文件注释)
 1. entry中添加渲染配置文件
 2. plugin中新增`HtmlPlugin`对象
