@@ -66,12 +66,6 @@ module.exports = {
         },
       ]
     },
-    devServer: {
-        open: true,
-        hot: true,
-        port: 3001,
-        static: "./public"
-    },
     plugins: [
         new webpack.HotModuleReplacementPlugin(),
         new HtmlPlugin({
