@@ -1,3 +1,4 @@
 ./system-frontend/build
+./system-frontend/dist
 ./system-frontend/node_modules
 .vscode
