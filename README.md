@@ -45,9 +45,9 @@ npm run build
 |login|./src/user-management-module/pages/login.js|login| tp | 登录界面 |
 |admin_home|./src/user-management-module/pages/admin_home.js|admin| tp | 管理员主页 |
 |user_home|./src/user-management-module/pages/user_home.js|user| tp | 用户主页 |
-|register_page|./src/user-management-module/pages/lregister_page.js|register| tp | 用户注册 |
-|    check_page    |    ./src/user-management-module/pages/check_page.js    |    check    | tp | 用户查验 |
-| user_manage_page | ./src/user-management-module/pages/user_manage_page.js | user_manage | tp | 用户管理 |
+|register_page|./src/user-management-module/pages/register_page.js|admin/register| tp | 用户注册 |
+|    check_page    |    ./src/user-management-module/pages/check_page.js    |    admin/check    | tp | 用户查验 |
+| user_manage_page | ./src/user-management-module/pages/user_manage_page.js | admin/user_manage | tp | 用户管理 |
 
 #### Course Mangement Module
 

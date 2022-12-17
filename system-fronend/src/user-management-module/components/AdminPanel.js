@@ -14,19 +14,19 @@ export default class AdminPanel extends React.Component{
                 <FunctionCard 
                 imgSource="img/library.jpeg"
                 title="用户注册"
-                textContent="添加新的系统用户" />
+                textContent="添加新的系统用户" link='/admin/register'/>
                 <FunctionCard 
                 imgSource="img/library.jpeg"
                 title="用户查验"
-                textContent="查看未查验用户信息" />
+                textContent="查看未查验用户信息" link='/admin/check'/>
                 <FunctionCard 
                 imgSource="img/library.jpeg"
                 title="用户管理"
-                textContent="管理用户信息" />
+                textContent="管理用户信息" link='/admin/user_manage'/>
                 <FunctionCard 
                 imgSource="img/library.jpeg"
                 title="课程管理"
-                textContent="管理课程信息" />
+                textContent="管理课程信息" link='/admin'/>
             </div>
         );
     }

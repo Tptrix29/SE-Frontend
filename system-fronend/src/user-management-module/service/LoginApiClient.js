@@ -1,20 +1,18 @@
 import { Config } from '../../config/backend-config';
-import CryptoJS from 'crypto-js';
+import { Utils } from '../../js-library/func-chunk';
 const axios = require('axios').default;
 
 export default class LoginApiClient{
 
     static verifyApi = "/token";
 
-    static encrypt(raw){
-        return CryptoJS.SHA1(raw).toString();
-    }
+    
 
     static login(nid, password){
         console.log("nid: "+nid +" pwd: " + password)
         return axios.post(Config.userModuleURL+this.verifyApi, {
             nid: nid, 
-            password: this.encrypt(password)
+            password: Utils.encrypt(password)
         },{
             headers: {
                 'Content-Type': 'application/x-www-form-urlencoded'

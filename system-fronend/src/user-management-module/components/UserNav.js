@@ -1,9 +1,18 @@
 import React from 'react';
+import { WebPathConfig } from '../../config/web-path';
+import { Utils } from '../../js-library/func-chunk';
 import "../../static/style.css"
 
 export default class UserNav extends React.Component{
     constructor(props){
         super(props);
+        this.state = {
+            token: Utils.getURLParam(window.location, 'token'),
+        }
+    }
+
+    backHome = () => {
+        WebPathConfig.toURL('/user', {token: this.state.token})
     }
 
     render(){
