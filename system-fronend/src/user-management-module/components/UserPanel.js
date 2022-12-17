@@ -1,12 +1,18 @@
 import React from "react";
+import { Utils } from "../../js-library/func-chunk";
 import "../../static/style.css"
 import FunctionCard from "./FunctionCard";
 
 export default class CrousePanel extends React.Component{
     constructor(props){
         super(props);
-        
+        this.state = {
+            token: Utils.getURLParam(window.location, 'token'),
+
+        }
     }
+
+    
 
     render(){
         return(

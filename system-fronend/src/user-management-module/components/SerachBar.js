@@ -10,12 +10,18 @@ export default class UserManagePanel extends React.Component{
         }
     }
 
+    handleKeyDown = (event) => {
+        if(event.keyCode == 13){
+            this.props.query();
+        }
+    }
+
     render(){
         return(
             <div className="search-bar">
                 <InputGroup style={{width: '60%'}}>
                     <InputGroup.Text>{this.props.tip}</InputGroup.Text>
-                    <Form.Control placeholder="请输入" />
+                    <Form.Control placeholder="请输入" onChange={(event) => this.props.keywordBind(event)} onKeyDown={this.handleKeyDown}/>
                     {this.props.addDropdown ? (
                         <DropdownButton variant="outline-secondary" title={this.state.dropTitle}>
                             {
@@ -26,7 +32,7 @@ export default class UserManagePanel extends React.Component{
                         </DropdownButton>
                     ) : null}
                 </InputGroup>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <Button variant="success">查询</Button>
+                <Button variant="success" onClick={this.props.query}>查询</Button>
             </div>
         );
     }

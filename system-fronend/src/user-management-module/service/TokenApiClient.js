@@ -6,6 +6,7 @@ export class TokenApiClient{
     static host = Config.userModuleURL;
     static verifyApi = '/token'
 
+
     static verify(token){
         return axios.get(Config.userModuleURL + this.verifyApi + '?' +qs.stringify({
             token: token

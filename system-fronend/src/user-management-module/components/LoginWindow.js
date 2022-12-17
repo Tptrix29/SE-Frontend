@@ -3,7 +3,7 @@ import "../../static/style.css"
 import { FloatingLabel, Form} from 'react-bootstrap';
 import LoginApiClient from '../service/LoginApiClient.js';
 import { WebPathConfig } from '../../config/web-path';
-import AlertTip from '../AlertTip';
+import AlertTip from '../components/AlertTip';
 
 export default class LoginWindow extends React.Component{
     constructor(props){

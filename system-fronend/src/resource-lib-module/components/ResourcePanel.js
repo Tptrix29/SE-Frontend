@@ -27,11 +27,19 @@ export default class ResourcePanel extends React.Component{
         }
     }
 
+    changeQueryFilename = () => {
+
+    }
+
+    retrieve = () => {
+
+    }
+
     render(){
         var n_file = 0;
         return(
             <div className="home-panel">
-                <SearchBar tip="资料名" addDropdown={true} />
+                <SearchBar tip="资料名" addDropdown={true} keywordBind={this.changeQueryFilename} query={this.retrieve}/>
                 <div>
                     <Button variant='primary'>批量下载</Button>
                 </div>

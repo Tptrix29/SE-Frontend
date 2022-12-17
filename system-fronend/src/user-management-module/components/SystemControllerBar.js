@@ -38,7 +38,7 @@ export class SystemControllerBar extends React.Component{
                     isActive: resp.data.active,
                 })
         }).catch((err)=>{
-            alert("Error")
+            alert("登录过期，请重新登录")
             console.log(err.response.status)
             WebPathConfig.redirectToLogin()
         })
