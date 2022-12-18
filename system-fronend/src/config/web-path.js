@@ -1,5 +1,7 @@
+
+
 export class WebPathConfig{
-    static host = 'http://localhost:3001';
+    static host = 'http://localhost:80';
 
     static toURL(path, params=null){
         if(!params)

@@ -5,9 +5,7 @@ const axios = require('axios').default;
 export default class LoginApiClient{
 
     static verifyApi = "/token";
-
     
-
     static login(nid, password){
         console.log("nid: "+nid +" pwd: " + password)
         return axios.post(Config.userModuleURL+this.verifyApi, {

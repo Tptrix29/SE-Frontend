@@ -1,6 +1,6 @@
 import React from 'react';
 import '../../static/style.css';
-import {Table, Pagination} from 'react-bootstrap';
+import {Table, Pagination, Spinner} from 'react-bootstrap';
 import CheckRow from './CheckRow';
 import { UserApiClient } from '../service/UserApiClient';
 
@@ -10,27 +10,8 @@ export default class CheckPanel extends React.Component{
         this.state = {
             row_Max: 8,
             colNames: ["序号", "学/工号", "用户名", "邮箱", "操作"],
-            data: [
-                // {
-                //     uid: 1119229,
-                //     username: "test",
-                //     email: "hello@tongji.edu.cn",
-                // },
-                // {
-                //     uid: 1119229,
-                //     username: "test",
-                //     email: "hello@tongji.edu.cn",
-                // },
-                // {
-                //     uid: 1119229,
-                //     username: "test",
-                //     email: "hello@tongji.edu.cn",
-                // },{
-                //     uid: 1119229,
-                //     username: "test",
-                //     email: "hello@tongji.edu.cn",
-                // },
-            ]
+            data:[],
+            loading: true,
         }
     }
 
@@ -43,6 +24,7 @@ export default class CheckPanel extends React.Component{
             console.log(resp.data)
             this.setState({
                 data: resp.data,
+                loading:false,
             })
         }).catch(err =>{
             console.log(err)
@@ -57,24 +39,45 @@ export default class CheckPanel extends React.Component{
         })
     }
 
+    uncheckUser = (nid) => {
+        UserApiClient.uncheckOne(nid).then(resp => {
+            this.getData()
+        }).catch(err => {
+            console.log(err)
+        })
+    }
+
+
     render(){
         var n_row = 0;
         return (
             <div className="page-panel">
-                <Table striped bordered hover size="sm">
-                <thead>
-                    <tr>{
-                        this.state.colNames.map((element) =>{
-                            return <th key={element}>{element}</th>
-                        })}</tr>
-                </thead>
-                <tbody>
-                    {this.state.data.map((item)=>{
-                        n_row += 1;
-                        return <CheckRow key={item.nid} nRow={n_row} data={item} pass={this.checkUser}/>
-                    })}
-                </tbody>
-                </Table>
+                {
+                    this.state.loading ? (
+                        <div className='loading-icon'>
+                            <Spinner animation="border" role="status" >
+                            <span className="visually-hidden">Loading...</span>
+                        </Spinner>
+                        </div>
+                    ):(
+                        <Table striped bordered hover size="sm">
+                            <thead>
+                                <tr>{
+                                    this.state.colNames.map((element) =>{
+                                        return <th key={element}>{element}</th>
+                                    })}
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {this.state.data.map((item)=>{
+                                    n_row += 1;
+                                    return <CheckRow key={item.nid} nRow={n_row} data={item} pass={this.checkUser} cancel={this.uncheckUser}/>
+                                })}
+                            </tbody>
+                        </Table>
+                    )
+                }
+                
                 {/* <div className="page-skipper">
                 <Pagination>
                     <Pagination.First />

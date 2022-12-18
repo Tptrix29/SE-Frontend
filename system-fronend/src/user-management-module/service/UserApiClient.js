@@ -3,26 +3,38 @@ import { Config } from '../../config/backend-config';
 
 export class UserApiClient{
     static userApi = '/users';
-    static uncheckedApi = '/users/unchecked';
-    static checkApiSuffix = '/validate';
+    static retrieveApi = '/users/{nid}';
+    static registerApi = '/users';
+    static deleteApi = '/users/{nid}';
+    static uncheckApi = '/users/unchecked';
+    static checkApi = '/users/{nid}/validate';
+
 
     static retrieve(nid){
-        return axios.get(Config.userModuleURL + this.userApi + '/' + nid);
+        const url = this.retrieveApi.replace('{nid}', nid);
+        return axios.get(Config.userModuleURL + url);
     }
 
     static registerOne(info){
-        return axios.post(Config.userModuleURL + this.userApi, info);
+        return axios.post(Config.userModuleURL + this.registerApi, info);
     }
 
     static deleteOne(nid){
-        return axios.delete(Config.userModuleURL + this.userApi + '/' + nid);
+        const url = this.deleteApi.replace('{nid}', nid);
+        return axios.delete(Config.userModuleURL + url);
     }
 
     static findAllUnchecked(){
-        return axios.get(Config.userModuleURL+this.uncheckedApi);
+        return axios.get(Config.userModuleURL+this.uncheckApi);
     }
 
     static checkOne(nid){
-        return axios.post(Config.userModuleURL + this.userApi + '/' + nid + this.checkApiSuffix)
+        const url = this.checkApi.replace('{nid}', nid);
+        return axios.post(Config.userModuleURL + url);
+    }
+
+    static uncheckOne(nid){
+        const url = this.checkApi.replace('{nid}', nid);
+        return axios.delete(Config.userModuleURL + url);
     }
 }

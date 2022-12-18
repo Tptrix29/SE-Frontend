@@ -15,7 +15,7 @@ export default class CheckRow extends React.Component{
                 <td>{this.props.data.email}</td>
                 <td>
                     <Button variant="outline-primary" onClick={() =>this.props.pass(this.props.data.nid)}>通过</Button>&nbsp;&nbsp;
-                    <Button variant="outline-danger">不通过</Button>
+                    <Button variant="outline-danger" onClick={() =>this.props.cancel(this.props.data.nid)}>不通过</Button>
                 </td>
             </tr>
         );

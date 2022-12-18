@@ -21,7 +21,7 @@ export default class RegisterPanel extends React.Component{
                 visible: false,
                 tip: "",
             },
-
+            // registeration info
             nid: "",
             username: "",
             password1: "",

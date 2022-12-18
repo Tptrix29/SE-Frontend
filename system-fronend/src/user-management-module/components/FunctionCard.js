@@ -8,16 +8,11 @@ import { WebPathConfig } from "../../config/web-path";
 export default class FunctionCard extends React.Component{
     constructor(props){
         super(props);
-        this.state = {
-            token: Utils.getURLParam(window.location, 'token')
-        }
     }
 
     toURL = () =>{
         // alert(this.state.token)
-        WebPathConfig.toURL(this.props.link, {
-            token: this.state.token
-        })
+        WebPathConfig.toURL(this.props.link, this.props.linkParams)
     }
 
     render(){

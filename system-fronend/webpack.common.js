@@ -1,4 +1,3 @@
-const path = require('path');
 const webpack = require('webpack');
 const HtmlPlugin = require('html-webpack-plugin');
 
@@ -29,11 +28,7 @@ module.exports = {
         // Lib Module
         lib_home: './src/resource-lib-module/pages/lib_home.js',
     },
-    output: {
-        filename: '[name].bundle.js',
-        path: path.resolve(__dirname, 'build'),
-        clean: true
-    },
+    
     module: {
         rules: [{
             test: /\.js$/,
@@ -72,7 +67,7 @@ module.exports = {
         new HtmlPlugin({
             template: 'public/index.html',  // 模版，不需改动
             filename: 'index.html',  // 输出文件名称，浏览器访问路径，HTML文件名默认index.html，需要改动
-            chunks: ['index'],  // js入口，对应entry中的key，需要改动
+            chunks: ['login'],  // js入口，对应entry中的key，需要改动
         }),
         new HtmlPlugin({
             template: 'public/index.html',

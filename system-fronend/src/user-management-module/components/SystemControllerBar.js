@@ -24,14 +24,14 @@ export class SystemControllerBar extends React.Component{
 
     componentDidMount(){
         TokenApiClient.verify(this.state.token).then((resp) => {
-            console.log(resp.data)
+            // console.log(resp.data)
             this.setState({
                 nid: resp.data.nid,
                 isAdmin: resp.data.admin,
             });
             return UserApiClient.retrieve(resp.data.nid);
         }).then((resp) => {
-            console.log(resp.data)
+            // console.log(resp.data)
                 this.setState({
                     username: resp.data.name,
                     email: resp.data.email,
