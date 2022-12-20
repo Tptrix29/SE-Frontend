@@ -1,4 +1,5 @@
 import CryptoJS from 'crypto-js';
+import qs from 'query-string';
 
 
 export class Utils{
@@ -8,6 +9,15 @@ export class Utils{
         if (!result) return;
         if (!result[1]) return;
         return result[1];
+    }
+
+    static requestWithParams(url, params){
+        // console.log(url + '?' + qs.stringify(params))
+        return (url + '?' + qs.stringify(params));
+    }
+
+    static timestamp2date(stamp){
+        return new Date(stamp).toLocaleString();
     }
 
     static encrypt(raw){
@@ -39,4 +49,5 @@ export class Utils{
         var reg = /^(?![a-zA-z]+$)(?!\d+$)(?![!@#$%^&*]+$)(?![a-zA-z\d]+$)(?![a-zA-z!@#$%^&*]+$)(?![\d!@#$%^&*]+$)[a-zA-Z\d!@#$%^&*]+$/
         return reg.test(str) && str.length >= 8;
     }
+
 }

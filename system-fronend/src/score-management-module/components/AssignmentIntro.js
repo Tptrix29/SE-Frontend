@@ -6,20 +6,91 @@ import AssignmentForm from "./AssignmentForm";
 import SubmissionPanel from "./SubmissionPanel";
 import SubmittedView from "./SubmittedView";
 
+import { AssignmentApiClient } from "../service/AssignmentApiClient";
+import { UserApiClient } from "../../user-management-module/service/UserApiClient";
+import { TokenApiClient } from "../../user-management-module/service/TokenApiClient";
+import { CourseApiClient } from "../../course-management-module/service/CourseApiClient";
+import { Utils } from "../../js-library/func-chunk";
+
 export default class AssignmentIntro extends React.Component{
     constructor(props){
         super(props);
         this.state = {
-            isEditable: true, 
+            isEditable: false, 
             isEditing: false,
             isSubmitted: false,
+            token: Utils.getURLParam(window.location, 'token'),
+            code: Utils.getURLParam(window.location, 'code'),
+            asid: Utils.getURLParam(window.location, 'asid'),
             assignmentInfo:{
-                name: "hello",
-                owner: "xxx",
-                ddl: new Date().toString(),
-                desp: "None",
+                name: "--",
+                owner: "--",
+                ddl: "--",
+                desp: "--",
             }
         }
+    }
+
+    componentDidMount(){
+        this.getRole();
+        this.getCourseName();
+        this.getAssignmentInfo();
+    }
+
+    getCourseName = () => {
+        CourseApiClient.getCourseInfo(this.state.code).then(resp => {
+            this.setState({
+                courseName: resp.data.name,
+            })
+        }).catch(err => {
+            console.log(err);
+        })
+    }
+
+    getAssignmentInfo = async ()=>{
+        // 
+        const ownerId = await AssignmentApiClient.getAssignmentInfoByAsid(this.state.asid).then(resp => {
+            this.setState({
+                assignmentInfo:{
+                    name: resp.data.name,
+                    desp: resp.data.description, 
+                    ddl: Utils.timestamp2date(resp.data.endTime),
+                }
+            })
+            return resp.data.ownerNid;
+        }).catch(err =>{
+            console.log(err);
+        })
+
+        // owner name
+        UserApiClient.retrieve(ownerId).then(resp => {
+            this.setState({
+                assignmentInfo: Object.assign(this.state.assignmentInfo, {owner: resp.data.name}),
+            })
+        })
+    }
+
+    getRole = async () => {
+        var nid = await TokenApiClient.verify(this.state.token).catch(err => {
+            alert('登录失效')
+            WebPathConfig.redirectToLogin()
+        }).then(resp => {
+            return resp.data.nid;
+        })
+
+        var role = await CourseApiClient.getTeacher(this.state.code).then(resp => {
+            var userRole = 'STUDENT';
+            resp.data.map(teacher => {
+                if(teacher.nid == nid)
+                    return (userRole = teacher.role);
+            })
+            return userRole;
+        })
+
+        this.setState({
+            role: role,
+            isEditable: role != 'STUDENT',
+        })
     }
 
     toEdit = ()=>{
@@ -29,6 +100,7 @@ export default class AssignmentIntro extends React.Component{
     }
 
     render(){
+        // console.log(this.state.assignmentInfo)
         const isEditable = this.state.isEditable;
         var editingState = this.state.isEditing;
         return(

@@ -57,7 +57,7 @@ export default class UserNav extends React.Component{
     toCourse = (code) => {
         WebPathConfig.toURL(this.state.courseLinkPrefix, {
             token: this.state.token,
-            cid: code,
+            code: code,
         })
     }
 

@@ -5,21 +5,96 @@ import { Form, InputGroup } from "react-bootstrap";
 
 import ExpForm from "./ExpForm";
 import FilePanel from "./FilePanel";
+import { Utils } from "../../js-library/func-chunk";
+import { TokenApiClient } from "../../user-management-module/service/TokenApiClient";
+import { WebPathConfig } from "../../config/web-path";
+import { CourseApiClient } from "../../course-management-module/service/CourseApiClient";
+import { ExpApiClient } from "../service/ExpApiClient";
+import { UserApiClient } from '../../user-management-module/service/UserApiClient';
 
 export default class ExpIntro extends React.Component{
     constructor(props){
         super(props);
         this.state={
-            isEditable: true,
+            token: Utils.getURLParam(window.location, 'token'),
+            code: Utils.getURLParam(window.location, 'code'),
+            eid: Utils.getURLParam(window.location, 'eid'),
+
             isEditing: false,
+            isEditable: false,
+            
+            courseName: '--',
             expInfo:{
-                name: "TestExp",
-                owner: "xxx", 
-                time: new Date().toString(),
-                equipment: "烧杯",
-                desp: "Esay",
+                name: "--",
+                owner: "--", 
+                time: "--",
+                equipment: "--",
+                desp: "--",
             }
         }
+    }
+
+    componentDidMount(){
+        this.getRole();
+        this.getCourseName();
+        this.getExpInfo();
+    }
+
+    getCourseName = () => {
+        CourseApiClient.getCourseInfo(this.state.code).then(resp => {
+            this.setState({
+                courseName: resp.data.name,
+            })
+        }).catch(err => {
+            console.log(err);
+        })
+    }
+
+    getExpInfo = async ()=>{
+        // 
+        const ownerId = await ExpApiClient.getExpInfo(this.state.eid).then(resp => {
+            this.setState({
+                expInfo:{
+                    name: resp.data.name,
+                    desp: resp.data.description, 
+                    equipment: resp.data.equipments,
+                    time: Utils.timestamp2date(resp.data.startTime),
+                }
+            })
+            return resp.data.ownerNid;
+        }).catch(err =>{
+            console.log(err);
+        })
+
+        // owner name
+        UserApiClient.retrieve(ownerId).then(resp => {
+            this.setState({
+                expInfo: Object.assign(this.state.expInfo, {owner: resp.data.name}),
+            })
+        })
+    }
+
+    getRole = async () => {
+        var nid = await TokenApiClient.verify(this.state.token).catch(err => {
+            alert('登录失效')
+            WebPathConfig.redirectToLogin()
+        }).then(resp => {
+            return resp.data.nid;
+        })
+
+        var role = await CourseApiClient.getTeacher(this.state.code).then(resp => {
+            var userRole = 'STUDENT';
+            resp.data.map(teacher => {
+                if(teacher.nid == nid)
+                    return (userRole = teacher.role);
+            })
+            return userRole;
+        })
+
+        this.setState({
+            role: role,
+            isEditable: role != 'STUDENT',
+        })
     }
 
     toEdit = ()=> {
@@ -34,7 +109,7 @@ export default class ExpIntro extends React.Component{
         return(
             <div className="page-panel">
                 <div className="page-title">
-                    <div>课程名称 | {this.state.expInfo.name}</div>
+                    <div>{this.state.courseName} | {this.state.expInfo.name}</div>
                     { editable ?
                     <div id="manage-exp">
                         <Button variant="warning" onClick={this.toEdit}>{

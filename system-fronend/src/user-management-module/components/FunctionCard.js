@@ -1,6 +1,5 @@
 import React from "react";
 import "../../static/style.css"
-import { Utils } from "../../js-library/func-chunk";
 import { WebPathConfig } from "../../config/web-path";
 
 

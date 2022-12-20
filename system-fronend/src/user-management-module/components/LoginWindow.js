@@ -66,6 +66,7 @@ export default class LoginWindow extends React.Component{
 
     execLogin = () => {
         return LoginApiClient.login(this.state.nid, this.state.password).then((resp) => {
+            console.log(resp.data.isAdmin);
             WebPathConfig.toURL((resp.data.isAdmin ? '/admin':'/user'), {
                 token: resp.data.token
             })

@@ -2,11 +2,12 @@ import React from "react";
 import "../../static/style.css"
 import UserCanvas from "./UserCanvas";
 import { Button } from "react-bootstrap";
-import logo from '../../../public/img/logo.png'
 import { Utils } from "../../js-library/func-chunk";
 import { TokenApiClient } from "../service/TokenApiClient";
 import { WebPathConfig } from "../../config/web-path";
 import { UserApiClient } from "../service/UserApiClient";
+
+import logo from '../../../public/img/logo.png'
 
 
 export class SystemControllerBar extends React.Component{
@@ -39,8 +40,8 @@ export class SystemControllerBar extends React.Component{
                 })
         }).catch((err)=>{
             alert("登录过期，请重新登录")
-            console.log(err.response.status)
             WebPathConfig.redirectToLogin()
+            console.log(err.response.status)
         })
     }
 

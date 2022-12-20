@@ -1,6 +1,8 @@
 import axios from 'axios';
 import { Config } from '../../config/backend-config';
 
+
+
 export class UserApiClient{
     static userApi = '/users';
     static retrieveApi = '/users/{nid}';
@@ -8,11 +10,22 @@ export class UserApiClient{
     static deleteApi = '/users/{nid}';
     static uncheckApi = '/users/unchecked';
     static checkApi = '/users/{nid}/validate';
+    static batchAddUserApi = '/users/batch';
+
+    UserApiClient(){
+        axios.defaults.headers.common['Token'] = 'warrant';
+        axios.defaults.headers.common['Access-Control-Allow-Origin'] = '*';
+    }
 
 
     static retrieve(nid){
         const url = this.retrieveApi.replace('{nid}', nid);
-        return axios.get(Config.userModuleURL + url);
+        return axios.get(Config.userModuleURL + url, {
+            headers:{
+                'Token': 'warrant',
+                'Access-Control-Allow-Origin': '*',
+            }
+        });
     }
 
     static registerOne(info){

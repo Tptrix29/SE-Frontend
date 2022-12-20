@@ -4,7 +4,8 @@ import "../../static/style.css"
 import FunctionCard from "./FunctionCard";
 import { TokenApiClient } from "../service/TokenApiClient";
 import { CourseApiClient } from "../../course-management-module/service/CourseApiClient";
-import { WebPathConfig } from "../../config/web-path";
+
+import libImg from '../../../public/img/library.jpeg';
 
 export default class CrousePanel extends React.Component{
     constructor(props){
@@ -62,8 +63,8 @@ export default class CrousePanel extends React.Component{
             <div className="home-panel">
                 {   
                     this.getCourses().map((course) => {
-                        console.log(course);
-                        return <FunctionCard key={course.code} imgSource='img/library.jpeg' title={course.name} textContent={course.description} link={this.state.courseLinkPrefix} linkParams={{token: this.state.token, cid: course.code}}/>
+                        // console.log(course);
+                        return <FunctionCard key={course.code} imgSource={libImg} title={course.name} textContent={course.description} link={this.state.courseLinkPrefix} linkParams={{token: this.state.token, code: course.code}}/>
                     })
                 }
                 {/* <FunctionCard 

@@ -9,7 +9,7 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
     <div>
         <SystemControllerBar/>
-        <UserPanel />
+        {/* <UserPanel /> */}
     </div>
 );
 

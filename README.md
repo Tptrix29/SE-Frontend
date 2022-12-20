@@ -5,6 +5,7 @@ Front-end page of **Experiment Management System** by React.
 - npm 8.19.2
 - React 18.2.0
 - Bootstrap 5.2.3
+- Bootstrap React 2.6.0
 - Ant Design 5.0.3
 - Axios 1.2.1
 
@@ -18,6 +19,8 @@ npm run dev
 
 ### 生产环境运行
 
+修改`system-fronend/src/config/backend-config.js`中的host为目标服务器域名，然后运行：
+
 ```shell
 git clone https://github.com/Tptrix29/SE-Frontend
 cd SE-Frontend/system-fronend
@@ -25,7 +28,7 @@ npm install
 npm run build
 ```
 
-
+转移`system-fronend/dist`文件下文件到Nginx服务器网页文件夹下，即可访问相关页面。
 
 ### 新增页面测试
 
@@ -57,10 +60,10 @@ npm run build
 
 #### Experiment Mangement Module
 
-|  entry key   |                  source path (js file)                  |    web path    | write |   desp   |
-| :----------: | :-----------------------------------------------------: | :------------: | :---: | :------: |
-|   exp_page   |  ./src/experiment-management-module/pages/exp_page.js   |   course/exp   |  tp   | 实验信息 |
-| add_exp_page | ./src/experiment-management-module/pages/add_exp_page.j | course/exp/add |  tp   | 实验添加 |
+|  entry key   |                  source path (js file)                  |    web path    | Writer |   desp   |
+| :----------: | :-----------------------------------------------------: | :------------: | :----: | :------: |
+|   exp_page   |  ./src/experiment-management-module/pages/exp_page.js   |   course/exp   |   tp   | 实验信息 |
+| add_exp_page | ./src/experiment-management-module/pages/add_exp_page.j | course/exp/add |   tp   | 实验添加 |
 
 #### Score Mangement Module
 
@@ -77,4 +80,6 @@ npm run build
 | entry key |            source path (js file)            | web path |       module        | writer | desp       |
 | :-------: | :-----------------------------------------: | :------: | :-----------------: | :----: | ---------- |
 | lib_home  | ./src/resource-lib-module/pages/lib_home.js |   Lib    | Resource Lib Module |   tp   | 资料库主页 |
+
+
 

@@ -2,21 +2,30 @@ import axios from 'axios';
 import { Config } from '../../config/backend-config';
 import { WebPathConfig } from '../../config/web-path';
 
+axios.defaults.headers.common['Token'] = 'warrant';
+axios.defaults.headers.common['Access-Control-Allow-Origin'] = '*';
+
+
 export class CourseApiClient{
-    static findCourseAsStudent = '/courses/student/{nid}';
-    static findCourseAsTeacher = '/courses/teacher/{nid}';
-    static findCourseByCode = '/courses/{code}';
+    static findCourseAsStudentApi = '/courses/student/{nid}';
+    static findCourseAsTeacherApi = '/courses/teacher/{nid}';
+    static findCourseByCodeApi = '/courses/{code}';
+    static findTeacherByCodeApi = '/teachers/{code}'
 
     // cid, name, status
     static loadCourseAsStudent(nid){
-        return axios.get(Config.courseModuleURL + this.findCourseAsStudent.replace('{nid}', nid))
+        return axios.get(Config.courseModuleURL + this.findCourseAsStudentApi.replace('{nid}', nid))
     }
 
     static loadCourseAsTeacher(nid){
-        return axios.get(Config.courseModuleURL + this.findCourseAsTeacher.replace('{nid}', nid));
+        return axios.get(Config.courseModuleURL + this.findCourseAsTeacherApi.replace('{nid}', nid));
     }
 
     static getCourseInfo(code){
-        return axios.get(Config.courseModuleURL + this.findCourseByCode.replace('{code}', code));
+        return axios.get(Config.courseModuleURL + this.findCourseByCodeApi.replace('{code}', code));
+    }
+
+    static getTeacher(code) {
+        return axios.get(Config.courseModuleURL + this.findTeacherByCodeApi.replace('{code}', code));
     }
 }

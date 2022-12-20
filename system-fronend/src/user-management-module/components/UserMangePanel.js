@@ -7,7 +7,7 @@ import { TokenApiClient } from "../service/TokenApiClient";
 import { Utils } from "../../js-library/func-chunk";
 import { UploadOutlined } from '@ant-design/icons';
 import {  message, Upload } from 'antd';
-import axios from "axios";
+
 
 const props = {
     // beforeUpload: (file) => {
@@ -18,7 +18,7 @@ const props = {
     //     return isCSV || Upload.LIST_IGNORE;
     //   },
     name: 'file',
-    action: 'ttp://120.78.65.145:8080/users/batch',
+    action: UserApiClient,
     headers: {
         authorization: 'authorization-text',
     },

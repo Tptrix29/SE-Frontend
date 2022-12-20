@@ -25,7 +25,7 @@ export default class ExpForm extends React.Component{
                                     </InputGroup>
                                     <InputGroup className="mb-3">
                                         <InputGroup.Text>实验描述</InputGroup.Text>
-                                        <Form.Control placeholder={this.props.expInfo.desp} as="textarea" />
+                                        <Form.Control value={this.props.expInfo.desp} as="textarea" />
                                     </InputGroup>
                                     
                                     <div>相关文件：</div>
