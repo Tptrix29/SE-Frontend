@@ -8,16 +8,13 @@ export default class FilePanel extends React.Component{
         this.state = {
             isEditable: true,
             isAdding: true,
+            nFiles: 0,
             defaultInfo:{
                 id: -1, 
                 filename: "待上传",
                 time: "-"
             },
-            files: [{
-                id: 1,
-                filename: "hello",
-                time: "2022-12-12",
-            },]
+            files: []
         }
     }
 
@@ -41,7 +38,7 @@ export default class FilePanel extends React.Component{
             <div>
                 {this.state.files.map((element)=>{
                     return(
-                        <FileBar isEditable={isEditable} file={element}/>
+                        <FileBar key={element.id} isEditable={isEditable} file={element}/>
                     );
                 })}
                {isEditable ? (

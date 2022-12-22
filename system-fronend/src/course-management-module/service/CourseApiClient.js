@@ -1,9 +1,5 @@
 import axios from 'axios';
 import { Config } from '../../config/backend-config';
-import { WebPathConfig } from '../../config/web-path';
-
-axios.defaults.headers.common['Token'] = 'warrant';
-axios.defaults.headers.common['Access-Control-Allow-Origin'] = '*';
 
 
 export class CourseApiClient{

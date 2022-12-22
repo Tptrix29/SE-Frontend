@@ -7,6 +7,8 @@ import { Utils } from "../../js-library/func-chunk";
 import { AttendanceApiClient } from "../service/AttendanceApiCilent";
 import { UserApiClient } from "../../user-management-module/service/UserApiClient";
 import { CourseApiClient } from "../../course-management-module/service/CourseApiClient";
+import { message } from "antd";
+import { WebPathConfig } from "../../config/web-path";
 
 export default class AttendanceIntro extends React.Component{
     constructor(props){
@@ -17,27 +19,40 @@ export default class AttendanceIntro extends React.Component{
             atid: Utils.getURLParam(window.location, 'atid'),
             token: Utils.getURLParam(window.location, 'token'),
             code: Utils.getURLParam(window.location, 'code'),
+            courseName: '--',
             attendanceInfo:{
-                name: 'Test',
-                owner: 'zzz',
-                startTime: 'start',
-                endTime: 'start',
+                name: '--',
+                owner: '--',
+                startTime: '--',
+                endTime: '--',
             }
         }
 
     }
     componentDidMount(){
+        this.getCourseName();
         this.getAttendanceInfo();
+    }
+
+    getCourseName = () => {
+        CourseApiClient.getCourseInfo(this.state.code).then(resp => {
+            this.setState({
+                courseName: resp.data.name,
+            })
+        }).catch(err => {
+            console.log(err);
+        })
     }
 
     getAttendanceInfo = async () => {
         const ownerId = await AttendanceApiClient.getAttInfoByAtid(this.state.atid).then(resp => {
-            // console.log(resp.data);
+            console.log(resp.data);
             this.setState({
                 attendanceInfo: {
                     name: resp.data.name,
                     startTime: Utils.timestamp2date(resp.data.startTime),
                     endTime: Utils.timestamp2date(resp.data.endTime),
+                    ownerId: resp.data.ownerNid,
                 }
             })
             return resp.data.ownerNid
@@ -50,6 +65,25 @@ export default class AttendanceIntro extends React.Component{
             this.setState({
                 attendanceInfo: Object.assign(this.state.attendanceInfo, {owner: resp.data.name}),
             })
+        })
+    }
+    
+    deleteRequest = () => {
+        let atid = Utils.getURLParam(window.location, 'atid');
+        AttendanceApiClient.deleteAttendance(atid).then(resp => {
+            console.log(resp);
+            this.redirect2AttMain();
+        }).catch(err => {
+            console.log(err);
+            message.error("删除失败");
+        })
+    }
+
+    redirect2AttMain = () => {
+        WebPathConfig.toURL("/course", {
+            token: Utils.getURLParam(window.location, 'token'),
+            code: Utils.getURLParam(window.location, 'code'),
+            loc: "attendance"
         })
     }
         
@@ -66,10 +100,10 @@ export default class AttendanceIntro extends React.Component{
         return(
             <div className="page-panel">
                 <div className="page-title">
-                    <div>课程名称 | {this.state.attendanceInfo.name}</div>
+                    <div>{this.state.courseName} | {this.state.attendanceInfo.name}</div>
                     <div>
                         <Button variant="warning" onClick={this.toEdit}>{!editingState? "编辑":"取消编辑"}</Button>&nbsp;&nbsp;
-                        <Button variant="danger">删除</Button>
+                        <Button variant="danger" onClick={this.deleteRequest}>删除</Button>
                     </div>
                 </div>
                 
@@ -82,7 +116,7 @@ export default class AttendanceIntro extends React.Component{
                         </div>
                     ):(
                         <div>
-                            <AttendanceForm attendanceInfo={this.state.attendanceInfo}/>
+                            <AttendanceForm attendanceInfo={this.state.attendanceInfo} addMode={false}/>
                         
                         </div>
                     )}

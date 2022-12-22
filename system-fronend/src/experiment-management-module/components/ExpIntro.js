@@ -59,6 +59,7 @@ export default class ExpIntro extends React.Component{
                     desp: resp.data.description, 
                     equipment: resp.data.equipments,
                     time: Utils.timestamp2date(resp.data.startTime),
+                    ownerId: resp.data.ownerNid,
                 }
             })
             return resp.data.ownerNid;
@@ -102,7 +103,7 @@ export default class ExpIntro extends React.Component{
             isEditing: !this.state.isEditing,
         });
     }
-
+    
     render(){
         const editable = this.state.isEditable;
         var editingState = this.state.isEditing;
@@ -131,7 +132,7 @@ export default class ExpIntro extends React.Component{
                                 <FilePanel/>
                             </div>
                             ):(
-                                <ExpForm expInfo={this.state.expInfo}/>
+                                <ExpForm expInfo={this.state.expInfo} addMode={false} closeEdit={this.closeEdit}/>
                             )
                     }
                     

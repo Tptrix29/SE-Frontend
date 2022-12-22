@@ -24,7 +24,11 @@ export class SystemControllerBar extends React.Component{
     }
 
     componentDidMount(){
-        TokenApiClient.verify(this.state.token).then((resp) => {
+        TokenApiClient.verify(this.state.token).catch((err)=>{
+            alert("登录过期，请重新登录")
+            WebPathConfig.redirectToLogin()
+            console.log(err.response.status)
+        }).then((resp) => {
             // console.log(resp.data)
             this.setState({
                 nid: resp.data.nid,
@@ -38,10 +42,8 @@ export class SystemControllerBar extends React.Component{
                     email: resp.data.email,
                     isActive: resp.data.active,
                 })
-        }).catch((err)=>{
-            alert("登录过期，请重新登录")
-            WebPathConfig.redirectToLogin()
-            console.log(err.response.status)
+        }).catch(err => {
+            console.log(err);
         })
     }
 

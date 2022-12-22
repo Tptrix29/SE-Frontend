@@ -20,6 +20,10 @@ export default class CrousePanel extends React.Component{
 
     componentDidMount(){
         TokenApiClient.verify(this.state.token).catch(err => {
+            alert("登录过期，请重新登录")
+            WebPathConfig.redirectToLogin()
+            console.log(err.response.status)
+        }).catch(err => {
             console.log(err);
         }).then(resp => {
             return CourseApiClient.loadCourseAsStudent(resp.data.nid);

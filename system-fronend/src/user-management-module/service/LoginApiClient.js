@@ -16,8 +16,8 @@ export default class LoginApiClient{
             password: Utils.encrypt(password)
         },{
             headers: {
-                'Token': 'warrant',
-                'Access-Control-Allow-Origin': '*',
+                // 'Token': 'warrant',
+                // 'Access-Control-Allow-Origin': '*',
                 'Content-Type': 'application/x-www-form-urlencoded'
             }
         })

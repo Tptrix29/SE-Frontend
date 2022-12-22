@@ -88,7 +88,7 @@ export default class LoginWindow extends React.Component{
                 <div className='login-welcome'>统一身份认证</div>
                 <div className="input-box">
                     <FloatingLabel controlId="floatingNid" label="学/工号" className='mt-3' >
-                        <Form.Control type="text" placeholder="uid"  value={this.state.nid} onChange={(event) => this.updateNid(event)} />
+                        <Form.Control autoFocus={true} type="text" placeholder="uid"  value={this.state.nid} onChange={(event) => this.updateNid(event)} />
                     </FloatingLabel>
                     <FloatingLabel controlId="floatingPassword" label="密码" >
                         <Form.Control type="password" placeholder="Password" className='mt-3' value={this.state.password} onChange={(event) => this.updatePassword(event)} onKeyDown={(event) => this.handlePasswordKeyDown(event)} />

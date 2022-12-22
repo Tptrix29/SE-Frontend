@@ -1,7 +1,9 @@
 import axios from 'axios';
 import { Config } from '../../config/backend-config';
+import { Utils } from '../../js-library/func-chunk';
 
-
+axios.defaults.headers.common['Token'] = 'warrant';
+axios.interceptors.request.use()
 
 export class UserApiClient{
     static userApi = '/users';
@@ -12,20 +14,25 @@ export class UserApiClient{
     static checkApi = '/users/{nid}/validate';
     static batchAddUserApi = '/users/batch';
 
-    UserApiClient(){
-        axios.defaults.headers.common['Token'] = 'warrant';
-        axios.defaults.headers.common['Access-Control-Allow-Origin'] = '*';
-    }
+    static batchAction = Utils.requestWithParams(Config.userModuleURL + this.batchAddUserApi, {"checked": false})
 
+    static batchAddUsers(info){
+        return axios.post(Utils.requestWithParams(Config.userModuleURL + this.batchAddUserApi, {"checked": false}), {
+            csv: info.file,
+        }, {
+            headers: {
+                "Content-Type": 'multipart/form-data'
+            },
+            onUploadProgress: (load) => {
+                var percent = load.loaded / load.total * 100;
+                info.onProgress({percent});
+            }
+        })
+    }
 
     static retrieve(nid){
         const url = this.retrieveApi.replace('{nid}', nid);
-        return axios.get(Config.userModuleURL + url, {
-            headers:{
-                'Token': 'warrant',
-                'Access-Control-Allow-Origin': '*',
-            }
-        });
+        return axios.get(Config.userModuleURL + url);
     }
 
     static registerOne(info){

@@ -15,9 +15,9 @@ import AssignmentSubPanel from './AssignmentSubPanel';
 export class CoursePanel extends React.Component{
     constructor(props){
         super(props);
+        let tick = Utils.getURLParam(window.location, 'loc');
         this.state = {
-            contentId: "main",
-
+            contentId: tick ? tick: "main",
             token: Utils.getURLParam(window.location, 'token'),
             nid: '',
             code: Utils.getURLParam(window.location, 'code'),
@@ -130,7 +130,7 @@ export class CoursePanel extends React.Component{
         // console.log('TeacherData: ', this.state.teacherData)
         return(
             <div className="page-panel">
-                <CourseNav changeFunc={(newId)=>this.changeContentId(newId)}/>
+                <CourseNav changeFunc={(newId)=>this.changeContentId(newId)} default={this.state.contentId}/>
                 {(()=>{
                     switch(this.state.contentId){
                         case "main": return (

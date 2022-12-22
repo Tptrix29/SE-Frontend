@@ -11,6 +11,7 @@ import { UserApiClient } from "../../user-management-module/service/UserApiClien
 import { TokenApiClient } from "../../user-management-module/service/TokenApiClient";
 import { CourseApiClient } from "../../course-management-module/service/CourseApiClient";
 import { Utils } from "../../js-library/func-chunk";
+import { message } from "antd";
 
 export default class AssignmentIntro extends React.Component{
     constructor(props){
@@ -22,6 +23,7 @@ export default class AssignmentIntro extends React.Component{
             token: Utils.getURLParam(window.location, 'token'),
             code: Utils.getURLParam(window.location, 'code'),
             asid: Utils.getURLParam(window.location, 'asid'),
+            courseName: "--",
             assignmentInfo:{
                 name: "--",
                 owner: "--",
@@ -55,6 +57,7 @@ export default class AssignmentIntro extends React.Component{
                     name: resp.data.name,
                     desp: resp.data.description, 
                     ddl: Utils.timestamp2date(resp.data.endTime),
+                    ownerId: resp.data.ownerNid,
                 }
             })
             return resp.data.ownerNid;
@@ -99,6 +102,25 @@ export default class AssignmentIntro extends React.Component{
         });
     }
 
+    deleteRequest = () => {
+        let asid = Utils.getURLParam(window.location, 'asid');
+        AssignmentApiClient.deleteAssignment(asid).then(resp => {
+            console.log(resp);
+            this.redirect2AssMain();
+        }).catch(err => {
+            console.log(err);
+            message.error("删除失败");
+        })
+    }
+
+    redirect2AssMain = () => {
+        WebPathConfig.toURL("/course", {
+            token: Utils.getURLParam(window.location, 'token'),
+            code: Utils.getURLParam(window.location, 'code'),
+            loc: "assignment"
+        })
+    }
+
     render(){
         // console.log(this.state.assignmentInfo)
         const isEditable = this.state.isEditable;
@@ -106,13 +128,13 @@ export default class AssignmentIntro extends React.Component{
         return(
             <div className="page-panel">
                 <div className="page-title">
-                    <div>课程名称 | 作业名称</div>
+                    <div>{this.state.courseName} | {this.state.assignmentInfo.name}</div>
                     {isEditable ? (
                         <div>
                             <Button variant="warning" onClick={this.toEdit}>{
                                 !editingState ? "编辑":"取消编辑"
                             }</Button>&nbsp;&nbsp;
-                            <Button variant="danger">删除</Button>
+                            <Button variant="danger" onClick={this.deleteRequest}>删除</Button>
                         </div>  
                     ):(
                         <div style={{fontSize: "1.2rem"}}>
@@ -135,7 +157,7 @@ export default class AssignmentIntro extends React.Component{
                         </div>
                     ):(
                         <div>
-                            <AssignmentForm assignmentInfo={this.state.assignmentInfo}/>
+                            <AssignmentForm assignmentInfo={this.state.assignmentInfo} addMode={false}/>
                         </div>
                     )}
                 </div>

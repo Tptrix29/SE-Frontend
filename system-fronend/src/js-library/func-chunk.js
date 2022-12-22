@@ -1,6 +1,6 @@
 import CryptoJS from 'crypto-js';
 import qs from 'query-string';
-
+import dayjs from 'dayjs';
 
 export class Utils{
     static getURLParam(url, key){
@@ -17,8 +17,9 @@ export class Utils{
     }
 
     static timestamp2date(stamp){
-        return new Date(stamp).toLocaleString();
+        return dayjs(stamp).format('YYYY-MM-DD HH:mm:ss');
     }
+
 
     static encrypt(raw){
         return CryptoJS.SHA1(raw).toString();

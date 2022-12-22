@@ -8,7 +8,6 @@ import { Utils } from "../../js-library/func-chunk";
 import { UploadOutlined } from '@ant-design/icons';
 import {  message, Upload } from 'antd';
 
-
 const props = {
     // beforeUpload: (file) => {
     //     const isCSV = file.type === 'csv';
@@ -17,22 +16,27 @@ const props = {
     //     }
     //     return isCSV || Upload.LIST_IGNORE;
     //   },
-    name: 'file',
-    action: UserApiClient,
-    headers: {
-        authorization: 'authorization-text',
-    },
-    onChange(info) {
-        if (info.file.status !== 'uploading') {
-            console.log(info.file, info.fileList);
-        }
-        if (info.file.status === 'done') {
-            message.success(`${info.file.name} file uploaded successfully`);
-        } else if (info.file.status === 'error') {
-        message.error(`${info.file.name} file upload failed.`);
-        }
-    },
+    name: 'csv',
+    multiple: false,
+    accept: 'text/csv',
+    directory: false,
+    customRequest: info => {
+        UserApiClient.batchAddUsers(info).then(resp => {
+            if(!resp.data.fail.length){
+                message.success(`${info.file.name} 文件上传成功`);
+                info.onSuccess(resp);
+            }
+            else{
+                message.error(`${info.file.name} 中存在非法数据, 非法NID: ${resp.data.fail.join(',')}`);
+                info.onError();
+            }
+        }).catch(err => {
+            message.error(`${info.file.name} 文件上传失败`);
+            info.onError(err);
+        })
+    }
 };
+
 
 export default class UserManagePanel extends React.Component{
     constructor(props){
@@ -56,8 +60,16 @@ export default class UserManagePanel extends React.Component{
             alertInfo:{
                 visible: false,
                 tip: '',
-            }
+            },
+            fileList: []
         }
+    }
+
+    uploadFile = (options) =>{
+        [file, filename, data] = options;
+        console.log("file: " + file)
+        // console.log("filename: " + filename)
+        // console.log("data: " + data)
     }
 
     changeQueryNid = (event) => {
@@ -111,9 +123,7 @@ export default class UserManagePanel extends React.Component{
         })
     }
 
-    test = (file) => {
-        
-    }
+    
 
     showAlertInfo = (info) => {
         // console.log(info, this.state.alertInfo.visible)
@@ -160,15 +170,14 @@ export default class UserManagePanel extends React.Component{
                                     <Button style={{textAlign: "right"}} variant="danger" onClick={this.deleteUser}>注销</Button>
                                 </ListGroup.Item>
                             </ListGroup>
-                            {/* <a className="link-info" style={{marginTop: "10%"}}>批量添加新用户...</a> */}
-                            <Upload {...props}>
-                                <Button icon={<UploadOutlined />}>批量添加新用户(.csv)</Button>
+                            
+                            <Upload {...props } progress>
+                                <Button icon={<UploadOutlined/>}>批量添加新用户(.csv)</Button>
                             </Upload>
                         </Card.Body>
                     </Card>
                     <AlertTip visible={this.state.alertInfo.visible} 
                     info={this.state.alertInfo.tip} close={this.setInvisible}/>
-                    <input type='file' onChange={(event) => this.test(event)}/>
                 </div>
                 
             </div>

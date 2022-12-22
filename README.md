@@ -30,6 +30,13 @@ npm run build
 
 转移`system-fronend/dist`文件下文件到Nginx服务器网页文件夹下，即可访问相关页面。
 
+### 改进点
+前端：
+- 使用`React-Router`代替Webpack多页面配置，简化数据页面内的数据传递过程。
+- 改进token验证流程，通过axios拦截器简化权限请求过程。
+服务端：
+- 使用Nginx进行负载均衡配置，缓解频繁访问的模块的服务压力（如用户管理模块）。
+
 ### 新增页面测试
 
 修改`webpack.config.js`文件: (详细操作见配置文件注释)
