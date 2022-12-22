@@ -32,6 +32,7 @@ npm run build
 
 ### 改进点
 前端：
+- 使用TypeScript语言代替JavaScript语言，使得程序编写更为清晰。
 - 使用`React-Router`代替Webpack多页面配置，简化数据页面内的数据传递过程。
 - 改进token验证流程，通过axios拦截器简化权限请求过程。
 服务端：

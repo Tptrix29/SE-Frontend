@@ -12,6 +12,7 @@ import { TokenApiClient } from "../../user-management-module/service/TokenApiCli
 import { CourseApiClient } from "../../course-management-module/service/CourseApiClient";
 import { Utils } from "../../js-library/func-chunk";
 import { message } from "antd";
+import { WebPathConfig } from "../../config/web-path";
 
 export default class AssignmentIntro extends React.Component{
     constructor(props){

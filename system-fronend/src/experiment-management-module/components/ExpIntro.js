@@ -1,16 +1,17 @@
 import React from "react";
 import { Button } from "react-bootstrap";
 import '../../static/style.css';
-import { Form, InputGroup } from "react-bootstrap";
+// import { Form, InputGroup } from "react-bootstrap";
 
 import ExpForm from "./ExpForm";
 import FilePanel from "./FilePanel";
 import { Utils } from "../../js-library/func-chunk";
 import { TokenApiClient } from "../../user-management-module/service/TokenApiClient";
-import { WebPathConfig } from "../../config/web-path";
 import { CourseApiClient } from "../../course-management-module/service/CourseApiClient";
 import { ExpApiClient } from "../service/ExpApiClient";
 import { UserApiClient } from '../../user-management-module/service/UserApiClient';
+import { message } from "antd";
+import { WebPathConfig } from "../../config/web-path";
 
 export default class ExpIntro extends React.Component{
     constructor(props){
@@ -103,6 +104,25 @@ export default class ExpIntro extends React.Component{
             isEditing: !this.state.isEditing,
         });
     }
+
+    deleteRequest = () => {
+        let eid = Utils.getURLParam(window.location, 'eid');
+        ExpApiClient.deleteExperiment(eid).then(resp => {
+            console.log(resp);
+            this.redirect2ExpMain();
+        }).catch(err => {
+            console.log(err);
+            message.error("删除失败");
+        })
+    }
+
+    redirect2ExpMain = () => {
+        WebPathConfig.toURL("/course", {
+            token: Utils.getURLParam(window.location, 'token'),
+            code: Utils.getURLParam(window.location, 'code'),
+            loc: "exp"
+        })
+    }
     
     render(){
         const editable = this.state.isEditable;
@@ -116,7 +136,7 @@ export default class ExpIntro extends React.Component{
                         <Button variant="warning" onClick={this.toEdit}>{
                             editingState ? "取消编辑":"编辑"
                         }</Button>&nbsp;&nbsp;
-                        <Button variant="danger">删除</Button>
+                        <Button variant="danger" onClick={this.deleteRequest}>删除</Button>
                     </div>:null}
                 </div>
                 

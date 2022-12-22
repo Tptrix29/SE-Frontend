@@ -65,10 +65,10 @@ export class CoursePanel extends React.Component{
             var chargeTeacher = [];
             var commonTeacher = [];
             var assisant = [];
-            // console.log('teacher:', resp.data)
             resp.data.map((teacher) =>{
-                if(teacher.nid == nid)
-                    role = teacher.role;
+                if(teacher.nid == nid){
+                    role = teacher.role
+                }
                 switch(teacher.role){
                     case 'CHARGING_TEACHER': {
                         chargeTeacher.push(

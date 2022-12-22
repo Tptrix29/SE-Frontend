@@ -6,16 +6,9 @@ import AlertTip from './AlertTip';
 import { TokenApiClient } from "../service/TokenApiClient";
 import { Utils } from "../../js-library/func-chunk";
 import { UploadOutlined } from '@ant-design/icons';
-import {  message, Upload } from 'antd';
+import { message, Upload } from 'antd';
 
 const props = {
-    // beforeUpload: (file) => {
-    //     const isCSV = file.type === 'csv';
-    //     if (!isCSV) {
-    //       message.error(`${file.name} is not a csv file`);
-    //     }
-    //     return isCSV || Upload.LIST_IGNORE;
-    //   },
     name: 'csv',
     multiple: false,
     accept: 'text/csv',
@@ -171,7 +164,7 @@ export default class UserManagePanel extends React.Component{
                                 </ListGroup.Item>
                             </ListGroup>
                             
-                            <Upload {...props } progress>
+                            <Upload {...props }>
                                 <Button icon={<UploadOutlined/>}>批量添加新用户(.csv)</Button>
                             </Upload>
                         </Card.Body>

@@ -27,7 +27,7 @@ export class AssignmentApiClient{
     }
 
     static modifyAssignment(asid, data){
-        return axios.patch(Config.scoreModuleURL + this.modifyAssApi.replace("{asid}", asid),data, {
+        return axios.patch(Config.scoreModuleURL + this.modifyAssApi.replace("{asid}", asid), data, {
             headers: {
                 'Content-Type': 'application/json',
             }

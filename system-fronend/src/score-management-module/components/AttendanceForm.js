@@ -47,7 +47,6 @@ export default class AttendanceForm extends React.Component{
             endTime: this.state.endTime.format('YYYY-MM-DDTHH:mm:ss'),
             ownerNid: this.props.attendanceInfo.ownerId,
         }
-
         AttendanceApiClient.modifyAttendance(data.atid, data).then(resp=>{
             console.log(resp.data)
             this.redirect2AttPage(resp.data.atid);

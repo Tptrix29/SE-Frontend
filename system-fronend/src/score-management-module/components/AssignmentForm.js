@@ -48,8 +48,8 @@ export default class AssignmentForm extends React.Component{
         }
 
         AssignmentApiClient.modifyAssignment(data.asid, data).then(resp => {
-            this.redirect2AssPage(resp.data.asid);
             // console.log(resp.data);
+            this.redirect2AssPage(resp.data.asid);
         }).catch(err => {
             console.log(err);
             message.error("修改失败")
