@@ -1,8 +1,10 @@
+import dayjs from "dayjs";
 import React from "react";
 import { Button } from "react-bootstrap";
 import { WebPathConfig } from "../../config/web-path";
 import { Utils } from "../../js-library/func-chunk";
 import '../../static/style.css';
+import { message } from 'antd';
 
 import { TokenApiClient } from "../../user-management-module/service/TokenApiClient";
 import { AttendanceApiClient } from "../service/AttendanceApiCilent";
@@ -18,7 +20,7 @@ export default class AttendanceItem extends React.Component{
 
             endTime: Utils.timestamp2date(props.data.endTime),
             atid: props.data.atid,
-            status: '', // GOING_ON, SUCCESS, LATE, ABSENT, 
+            status: '', // GOING_ON, SUCCESS, LATE, ABSENT, NOT_START
         }
     }
 
@@ -34,7 +36,7 @@ export default class AttendanceItem extends React.Component{
             return resp.data;
         }).catch(err=>{
             console.log(err);
-            return 'GOING_ON';
+            return 'ERR';
         })
         this.setState({
             status: status,
@@ -42,16 +44,29 @@ export default class AttendanceItem extends React.Component{
     }
 
     check = () => {
-        // console.log('ll')
-        // TokenApiClient.verify(this.state.token).catch(err => {
-        //     alert('登录过期，请重新登录');
-        // }).then(resp => {
-        //     return AttendanceApiClient.checkIn(this.state.atid, resp.data.nid);
-        // }).then(resp => {
-        //     alert('签到成功');
-        // }).catch(err => {
-        //     alert('签到失败');
-        // })
+        TokenApiClient.verify(this.state.token).catch(err => {
+            alert('登录过期，请重新登录');
+        }).then(resp => {
+            return AttendanceApiClient.checkIn(this.state.atid, resp.data.nid);
+        }).then(resp => {
+            if(resp.data == "SUCCESS"){
+                message.success('签到成功');
+                this.setState({
+                    status: "SUCCESS",
+                })
+            }
+            if(resp.data == "LATE"){
+                message.success('补签成功');
+                this.setState({
+                    status: "LATE",
+                })
+            }
+            if(resp.data == "FAILED"){
+                message.error('签到失败');
+            }
+        }).catch(err => {
+            message.error('签到失败');
+        })
     }
 
     checkColor = (status) => {
@@ -61,6 +76,7 @@ export default class AttendanceItem extends React.Component{
             case "LATE": color = "link-warning";break;
             case "ABSENT": color = "link-danger";break;
             case "GOING_ON": color = "link-primary";break;
+            case "NOT_START": color = "link-secondary";break;
         }
         return color;
     }
@@ -73,11 +89,21 @@ export default class AttendanceItem extends React.Component{
         })
     }
 
+    judgeCheckable = () => {
+        if(this.state.status == "GOING_ON")
+            return true;
+        if(this.state.status == "ABSENT"){
+            if((dayjs(new Date()).diff(dayjs(this.state.endTime), "minutes"))<60)
+                return true;
+        }
+        return false;
+    }
+
     
     // 学生显示签到状态，老师显示任务状态
     // 功能：签到、前往编辑
     render(){
-        const checkable = (this.state.status == 'GOING_ON');
+        const checkable = this.judgeCheckable();
         return(
             <div className="item-bar">
                 <div>{this.props.data.name}</div>

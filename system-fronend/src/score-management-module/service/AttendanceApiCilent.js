@@ -16,10 +16,13 @@ export class AttendanceApiClient{
         return axios.get(Utils.requestWithParams(Config.scoreModuleURL + this.findAllAttByCodeApi, {courseCode: code}));
     }
 
-    // // Not complete
-    // static checkIn(atid, nid){
-    //     return axios.post()
-    // }
+    static checkIn(atid, nid){
+        return axios.patch(Utils.requestWithParams(Config.scoreModuleURL + this.checkAttApi.replace("{atid}", atid).replace("{nid}", nid), {
+            atid: atid,
+            nid: nid,
+            checkTime: new Date().getTime(),
+        }))
+    }
 
     static getCheckStatus(atid, nid){
         return axios.get(Config.scoreModuleURL + this.findCheckStatusApi.replace('{atid}', atid).replace('{nid}', nid));
