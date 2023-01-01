@@ -11,6 +11,11 @@ module.exports = {
         register_page: './src/user-management-module/pages/register_page.js',
         check_page: './src/user-management-module/pages/check_page.js',
         user_manage_page: './src/user-management-module/pages/user_manage_page.js',
+        add_course_page:'./src/user-management-module/pages/add_course_page.js',
+        manage_course_page:'./src/user-management-module/pages/manage_course_page.js',
+        modify_course_page:'./src/user-management-module/pages/modify_course_page.js',
+        add_student_page:'./src/user-management-module/pages/add_student_page.js',
+        add_teacher_page:'./src/user-management-module/pages/add_teacher_page.js',
         // Course Module
         course_page: './src/course-management-module/pages/course_page.js',
         // Experiment Module
@@ -101,6 +106,33 @@ module.exports = {
           chunks: ['user_home'],
         }),
 
+        // course management
+        new HtmlPlugin({
+          template: 'public/index.html',
+          filename: 'admin/add_course/index.html',
+          chunks: ['add_course_page'],
+        }),
+        new HtmlPlugin({
+          template: 'public/index.html',
+          filename: 'admin/manage_course/index.html',
+          chunks: ['manage_course_page'],
+        }),
+        new HtmlPlugin({
+          template: 'public/index.html',
+          filename: 'admin/course/index.html',
+          chunks: ['modify_course_page'],
+        }),
+        new HtmlPlugin({
+          template: 'public/index.html',
+          filename: 'admin/add_student/index.html',
+          chunks: ['add_student_page'],
+        }),
+        new HtmlPlugin({
+          template: 'public/index.html',
+          filename: 'admin/add_teacher/index.html',
+          chunks: ['add_teacher_page'],
+        }),
+        
         // Course
         new HtmlPlugin({
           template: 'public/index.html',

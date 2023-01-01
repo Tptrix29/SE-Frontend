@@ -31,7 +31,7 @@ export default class AdminPanel extends React.Component{
                 <FunctionCard 
                 imgSource={libImg}
                 title="课程管理"
-                textContent="管理课程信息" link='/admin' linkParams={{token: this.state.token}}/>
+                textContent="管理课程信息" link='/admin/manage_course' linkParams={{token: this.state.token}}/>
             </div>
         );
     }

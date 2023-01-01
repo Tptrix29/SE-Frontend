@@ -46,6 +46,15 @@ export class Utils{
         return reg.test(str) && str.length == 7;
     }
 
+    static checkCode(code){
+        var reg = /^[0-9]+$/;
+        return code.length == 8 && reg.test(code);
+    }
+
+    static checkPercent(percent){
+        return 0 < percent && percent < 100;
+    }
+
     static checkPwd(str){
         var reg = /^(?![a-zA-z]+$)(?!\d+$)(?![!@#$%^&*]+$)(?![a-zA-z\d]+$)(?![a-zA-z!@#$%^&*]+$)(?![\d!@#$%^&*]+$)[a-zA-Z\d!@#$%^&*]+$/
         return reg.test(str) && str.length >= 8;

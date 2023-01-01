@@ -13,7 +13,7 @@ export default class AdminNav extends React.Component{
                 register: '/admin/register',
                 check: '/admin/check',
                 manage: '/admin/user_manage',
-                course: '/admin'
+                course: '/admin/manage_course'
             }
         }
     }

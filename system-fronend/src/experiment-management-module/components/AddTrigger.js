@@ -4,7 +4,6 @@ import "../../static/style.css";
 export default class AddTrigger extends React.Component{
     constructor(props){
         super(props);
-
     }
 
     render(){
